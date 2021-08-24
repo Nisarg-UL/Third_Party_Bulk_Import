@@ -1,0 +1,2757 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Consumer_Product_and_Certificate_Creation" enabled="true">
+      <stringProp name="TestPlan.comments">Please modify &apos;environment&apos; value &amp; &apos;HTTP Request Defaults&apos; if you want to execute this test across other environment.</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="Ingestion_Template_Name" elementType="Argument">
+            <stringProp name="Argument.name">Ingestion_Template_Name</stringProp>
+            <stringProp name="Argument.value">${__P(Ingestion_Template_Name,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Log1_Name" elementType="Argument">
+            <stringProp name="Argument.name">Log1_Name</stringProp>
+            <stringProp name="Argument.value">Logs/Output_Log</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="File_Extension" elementType="Argument">
+            <stringProp name="Argument.name">File_Extension</stringProp>
+            <stringProp name="Argument.value">.xlsx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Environment_Path" elementType="Argument">
+            <stringProp name="Argument.name">Environment_Path</stringProp>
+            <stringProp name="Argument.value">InformationPlatformServices</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="environment" elementType="Argument">
+            <stringProp name="Argument.name">environment</stringProp>
+            <stringProp name="Argument.value">QA</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Products_Sheet" elementType="Argument">
+            <stringProp name="Argument.name">Products_Sheet</stringProp>
+            <stringProp name="Argument.value">Products</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Products_Log" elementType="Argument">
+            <stringProp name="Argument.name">Products_Log</stringProp>
+            <stringProp name="Argument.value">Product-Logs</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Certificates_Sheet" elementType="Argument">
+            <stringProp name="Argument.name">Certificates_Sheet</stringProp>
+            <stringProp name="Argument.value">Certificates</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Certificates_Log" elementType="Argument">
+            <stringProp name="Argument.name">Certificates_Log</stringProp>
+            <stringProp name="Argument.value">Certificate-Logs</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Mandatory_Values_Missing" elementType="Argument">
+            <stringProp name="Argument.name">Mandatory_Values_Missing</stringProp>
+            <stringProp name="Argument.value">Mandatory Values Missing</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Certificate_Product(s)_NotFound" elementType="Argument">
+            <stringProp name="Argument.name">Certificate_Product(s)_NotFound</stringProp>
+            <stringProp name="Argument.value">Certificate Product(s) Not Found</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Title_Sheet" elementType="Argument">
+            <stringProp name="Argument.name">Title_Sheet</stringProp>
+            <stringProp name="Argument.value">Title Page</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="grant_type" elementType="Argument">
+            <stringProp name="Argument.name">grant_type</stringProp>
+            <stringProp name="Argument.value">client_credentials</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="scope" elementType="Argument">
+            <stringProp name="Argument.name">scope</stringProp>
+            <stringProp name="Argument.value">User.Read</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="client_id_PROD" elementType="Argument">
+            <stringProp name="Argument.name">client_id_PROD</stringProp>
+            <stringProp name="Argument.value">63bae521-7db0-4283-9fd6-fb40e562e24b</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="client_secret_PROD" elementType="Argument">
+            <stringProp name="Argument.name">client_secret_PROD</stringProp>
+            <stringProp name="Argument.value">u.BY0g7V9~nx8KL0quk6MSmN.K6.KfF5a4</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="client_id_TRN" elementType="Argument">
+            <stringProp name="Argument.name">client_id_TRN</stringProp>
+            <stringProp name="Argument.value">426917da-f9d6-4082-8692-7cf3b8534e46</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="client_secret_TRN" elementType="Argument">
+            <stringProp name="Argument.name">client_secret_TRN</stringProp>
+            <stringProp name="Argument.value">q.O.9Fz0m_-x-ZYnVR76m9_IwhMMb67TMS</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="client_id_QA" elementType="Argument">
+            <stringProp name="Argument.name">client_id_QA</stringProp>
+            <stringProp name="Argument.value">0f616463-06db-4e17-9e0e-91960f51b5ff</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="client_secret_QA" elementType="Argument">
+            <stringProp name="Argument.name">client_secret_QA</stringProp>
+            <stringProp name="Argument.value">25Y--Ey2l~cN6-Eg~.5DXhjLUcGW8EOOqQ</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="operator" elementType="Argument">
+            <stringProp name="Argument.name">operator</stringProp>
+            <stringProp name="Argument.value">eq</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults-IP(non-PROD)" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">uliotest.azure-api.net</stringProp>
+        <stringProp name="HTTPSampler.port"></stringProp>
+        <stringProp name="HTTPSampler.protocol">https</stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="TestPlan.comments">Please enable &apos;HTTP Request Defaults-IP(non-PROD)&apos; if you want to execute this test in non-PROD environments.</stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="setUp Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </SetupThreadGroup>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="Certificates_Header_Cell_0" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_0</stringProp>
+              <stringProp name="Argument.value">Owner PSN</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_1" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_1</stringProp>
+              <stringProp name="Argument.value">Web link URL to certificate</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_2" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_2</stringProp>
+              <stringProp name="Argument.value">Certificate number</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_3" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_3</stringProp>
+              <stringProp name="Argument.value">Certification Scheme</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_4" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_4</stringProp>
+              <stringProp name="Argument.value">Certification Body</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_5" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_5</stringProp>
+              <stringProp name="Argument.value">Issued date</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_6" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_6</stringProp>
+              <stringProp name="Argument.value">Expiration date</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_7" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_7</stringProp>
+              <stringProp name="Argument.value">Certification mark</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_8" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_8</stringProp>
+              <stringProp name="Argument.value">Product description</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_9" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_9</stringProp>
+              <stringProp name="Argument.value">Country or Region</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_10" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_10</stringProp>
+              <stringProp name="Argument.value">Standards</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_11" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_11</stringProp>
+              <stringProp name="Argument.value">Report Number</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_12" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_12</stringProp>
+              <stringProp name="Argument.value">Report Issue Date</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_13" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_13</stringProp>
+              <stringProp name="Argument.value">Test Laboratory</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_14" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_14</stringProp>
+              <stringProp name="Argument.value">Model Number</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Certificates_Header_Cell_15" elementType="Argument">
+              <stringProp name="Argument.name">Certificates_Header_Cell_15</stringProp>
+              <stringProp name="Argument.value">Product Type</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Products_Header_Cell_0" elementType="Argument">
+              <stringProp name="Argument.name">Products_Header_Cell_0</stringProp>
+              <stringProp name="Argument.value">Owner PSN</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Products_Header_Cell_1" elementType="Argument">
+              <stringProp name="Argument.name">Products_Header_Cell_1</stringProp>
+              <stringProp name="Argument.value">Product Type</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Products_Header_Cell_2" elementType="Argument">
+              <stringProp name="Argument.name">Products_Header_Cell_2</stringProp>
+              <stringProp name="Argument.value">Product Family</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Products_Header_Cell_3" elementType="Argument">
+              <stringProp name="Argument.name">Products_Header_Cell_3</stringProp>
+              <stringProp name="Argument.value">Model Name</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Products_Header_Cell_4" elementType="Argument">
+              <stringProp name="Argument.name">Products_Header_Cell_4</stringProp>
+              <stringProp name="Argument.value">Model Designation</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Products_Header_Cell_5" elementType="Argument">
+              <stringProp name="Argument.name">Products_Header_Cell_5</stringProp>
+              <stringProp name="Argument.value">Product Identifier</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Products_Header_Cell_6" elementType="Argument">
+              <stringProp name="Argument.name">Products_Header_Cell_6</stringProp>
+              <stringProp name="Argument.value">Comments</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Create Log File" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+import org.apache.jmeter.services.FileServer;
+
+String current_time_stamp = &quot;${__timeShift(-y-MM-dd-HH-mm-ss-SSSS,,,,)}&quot;;
+//log.info(&quot;current_time_stamp:&quot; + current_time_stamp);
+vars.put(&quot;current_time_stamp&quot;, current_time_stamp);
+props.put(&quot;current_time_stamp&quot;, current_time_stamp);
+
+script_directory = FileServer.getFileServer().getBaseDir()+File.separator;
+String Log1 = script_directory+&quot;${Log1_Name}&quot;+&quot;${current_time_stamp}&quot;+&quot;${File_Extension}&quot;;
+vars.put(&quot;Log1&quot;, Log1);
+props.put(&quot;Log1&quot;, Log1);
+//log.info(&quot;Log1&quot; + Log1);
+
+//creating Blank writable Workbook
+XSSFWorkbook writableWorkbook = new XSSFWorkbook();
+XSSFSheet productsLogSheet = writableWorkbook.createSheet(&quot;${Products_Log}&quot;);
+vars.putObject(&quot;productsLogSheet&quot;,productsLogSheet);
+
+XSSFSheet certificatesLogSheet = writableWorkbook.createSheet(&quot;${Certificates_Log}&quot;);
+vars.putObject(&quot;certificatesLogSheet&quot;,certificatesLogSheet);
+
+	
+try {
+//	OutputStream writableExcelFile = new FileOutputStream(new File(script_directory+&quot;${Log1}&quot;));
+	OutputStream writableExcelFile = new FileOutputStream(new File(&quot;${Log1}&quot;));
+	vars.putObject(&quot;writableExcelFile&quot;,writableExcelFile);
+	writableWorkbook.write(writableExcelFile);
+	writableExcelFile.close();
+	writableWorkbook.close();
+} catch (IOException ex) {
+            ex.printStackTrace();
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Validate WorkBook, Sheet, Header, HeaderCells" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+import org.apache.jmeter.services.FileServer;
+
+script_directory = FileServer.getFileServer().getBaseDir()+File.separator;
+String Ingestion_Template = script_directory+&quot;${Ingestion_Template_Name}&quot;+&quot;${File_Extension}&quot;;
+vars.put(&quot;Ingestion_Template&quot;, Ingestion_Template);
+props.put(&quot;Ingestion_Template&quot;, Ingestion_Template);
+
+XSSFWorkbook readableWorkBook;
+try {
+	FileInputStream excelFile = new FileInputStream(new File(&quot;${Ingestion_Template}&quot;));
+	readableWorkBook = new XSSFWorkbook(excelFile);
+	log.info(&quot;Readable Workbook Found&quot;);
+	excelFile.close();
+} catch (Exception e) {
+     log.info(&quot;Readable Workbook Exception: &quot; + e.getMessage());
+}
+vars.putObject(&quot;readableWorkBook&quot;,readableWorkBook);
+
+XSSFSheet titleSheet;
+XSSFSheet productsSheet;
+XSSFSheet certificatesSheet;
+try {
+	productsSheet = readableWorkBook.getSheet(&quot;${Products_Sheet}&quot;);
+	certificatesSheet = readableWorkBook.getSheet(&quot;${Certificates_Sheet}&quot;);
+	titleSheet = readableWorkBook.getSheet(&quot;${Title_Sheet}&quot;);
+	if(productsSheet == null || certificatesSheet == null){
+				throw new Exception(&quot;ReadableSheet name doesnot exist or not specified&quot;);
+			}
+     log.info(&quot;Products/Certificates Sheet Found&quot;);
+} catch (Exception e) {
+     log.info(&quot;Products/Certificates Sheet Exception: &quot; + e.getMessage());
+}
+vars.putObject(&quot;productsSheet&quot;,productsSheet);
+vars.putObject(&quot;certificatesSheet&quot;,certificatesSheet);
+vars.putObject(&quot;titleSheet&quot;,titleSheet);
+
+XSSFRow productsHeader;
+String productsHeaderCells;
+XSSFRow certificatesHeader;
+String certificatesHeaderCells;
+int user_length=0;
+int productsColumnCount=0;
+int certificatesColumnCount=0;
+String user;
+String user_cell;
+DataFormatter df= new DataFormatter();
+try {
+	user_cell = df.formatCellValue(titleSheet.getRow(3).getCell(1));
+	String str = user_cell;
+	
+    if(str.substring(0,2)==&quot;0&apos;&quot;){
+    		user = user_cell.replace(&quot;&apos;&quot;, &quot;&quot;).trim();
+	} 
+	else{
+		user = user_cell.trim();
+	}
+	user_length = user.length();
+	props.put(&quot;user&quot;, user);
+	
+	productsColumnCount=productsSheet.getRow(0).getPhysicalNumberOfCells();
+//	log.info(&quot;productsColumnCount: &quot; + productsColumnCount);
+	
+	productsHeader = productsSheet.getRow(0);
+	log.info(&quot;Products Header Found&quot;);
+	
+	for(int i =0; i&lt; productsColumnCount; i++) {
+
+		String product_cell = productsHeader.getCell(i);	
+		String product_cell_variable = vars.get(&quot;Products_Header_Cell_&quot;+i);
+		if(product_cell.trim() != product_cell_variable.trim()){
+			productsHeaderCells = &quot;Not Found&quot;;
+//			vars.put(&quot;productsHeaderCells&quot;, productsHeaderCells);
+		}
+	}
+	certificatesColumnCount=certificatesSheet.getRow(0).getPhysicalNumberOfCells();
+//	log.info(&quot;certificatesColumnCount: &quot; + certificatesColumnCount);
+	certificatesHeader = certificatesSheet.getRow(0);
+	log.info(&quot;Certificates Header Found&quot;);
+	
+	for(int i =0; i&lt; certificatesColumnCount; i++) {
+		String certificate_cell = certificatesHeader.getCell(i);	
+		String certificate_cell_variable = vars.get(&quot;Certificates_Header_Cell_&quot;+i);
+		if(certificate_cell.trim() != certificate_cell_variable.trim()){
+			certificatesHeaderCells = &quot;Not Found&quot;;
+		}
+	}
+}catch (Exception e) {
+     log.info(&quot;Products/Certificates Header Exception: &quot; + e.getMessage());
+}
+vars.putObject(&quot;productsHeader&quot;,productsHeader);
+vars.put(&quot;productsHeaderCells&quot;,productsHeaderCells);
+vars.putObject(&quot;productsColumnCount&quot;,productsColumnCount);
+vars.putObject(&quot;certificatesHeader&quot;,certificatesHeader);
+vars.put(&quot;certificatesHeaderCells&quot;,certificatesHeaderCells);
+vars.putObject(&quot;certificatesColumnCount&quot;,certificatesColumnCount);
+vars.put(&quot;user&quot;, user);
+vars.putObject(&quot;user_length&quot;,user_length);
+
+if (!readableWorkBook.equals(null) &amp;&amp; user_length!=0 &amp;&amp; !productsSheet.equals(null) &amp;&amp; !productsHeader.equals(null) &amp;&amp; !productsHeaderCells.equals(&quot;Not Found&quot;) &amp;&amp; !certificatesSheet.equals(null) &amp;&amp; !certificatesHeader.equals(null) &amp;&amp; !certificatesHeaderCells.equals(&quot;Not Found&quot;) &amp;&amp; productsColumnCount==7 &amp;&amp; certificatesColumnCount==16) {
+	log.info(&quot;Readable WorkBook/Sheet/Header/HeaderCells/User Found&quot;);
+	vars.put(&quot;Ingestion WorkBook/Sheet/Header/HeaderCells/User Status&quot;, &quot;Found&quot;);
+} else {
+     log.info(&quot;Test Stopped as Readable WorkBook/Sheet/Header/HeaderCells/User Not Found&quot;);
+     vars.put(&quot;Ingestion WorkBook/Sheet/Header/HeaderCells/User Status&quot;, &quot;Not Found&quot;);
+//	SampleResult.setStopTestNow(true);	
+}
+
+//readableWorkBook.close();</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Not Found (Ingestion WorkBook/Sheet/Header/HeaderCells/User Status)" enabled="true">
+          <stringProp name="IfController.condition">${__groovy((&quot;${Ingestion WorkBook/Sheet/Header/HeaderCells/User Status}&quot;!=&quot;Found&quot;))}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 - Write Log(product)" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+import org.apache.jmeter.services.FileServer;
+
+Log = props.get(&quot;Log1&quot;);
+
+FileInputStream file = new FileInputStream(&quot;${Log}&quot;);
+XSSFWorkbook writableWorkbook = new XSSFWorkbook (file)
+Sheet writableSheet=writableWorkbook.getSheet(&quot;${Products_Log}&quot;)
+
+XSSFFont font = writableWorkbook.createFont();
+font.setFontHeightInPoints((short)14);
+//font.setFontName(&quot;Arial&quot;);
+//font.setColor(IndexedColors.BLUE.getIndex());
+font.setBold(true);
+font.setItalic(false);
+
+XSSFCellStyle style1 = writableWorkbook.createCellStyle();
+style1.setFont(font);
+style1.setFillForegroundColor(IndexedColors.GREEN.getIndex());
+style1.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style1.setAlignment(HorizontalAlignment.CENTER);
+style1.setBorderBottom(BorderStyle.MEDIUM);
+style1.setBorderRight(BorderStyle.MEDIUM);
+style1.setLocked(true);
+
+XSSFCellStyle style2 = writableWorkbook.createCellStyle();
+style2.setFont(font);
+style2.setFillForegroundColor(IndexedColors.RED.getIndex());
+style2.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style2.setAlignment(HorizontalAlignment.CENTER);
+style2.setBorderBottom(BorderStyle.MEDIUM);
+style2.setBorderRight(BorderStyle.MEDIUM);
+style2.setLocked(true);
+
+Row row_0 = writableSheet.createRow(0);
+readableWorkBook = vars.getObject(&quot;readableWorkBook&quot;);
+if (!readableWorkBook.equals(null)) {
+	row_0.createCell(0).setCellValue(&quot;Readable Workbook Found&quot;);
+	row_0.getCell(0).setCellStyle(style1);
+} else {
+	row_0.createCell(0).setCellValue(&quot;Readable Workbook Not Found&quot;);
+	row_0.getCell(0).setCellStyle(style2);
+}
+
+Row row_1 = writableSheet.createRow(1);
+readableSheet = vars.getObject(&quot;productsSheet&quot;);
+if (!readableSheet.equals(null)) {
+	row_1.createCell(0).setCellValue(&quot;Products Sheet Found&quot;);
+	row_1.getCell(0).setCellStyle(style1);
+} else {
+	row_1.createCell(0).setCellValue(&quot;Products Sheet Not Found&quot;);
+	row_1.getCell(0).setCellStyle(style2);
+}
+
+Row row_2 = writableSheet.createRow(2);
+header = vars.getObject(&quot;productsHeader&quot;);
+if (!header.equals(null)) {
+	row_2.createCell(0).setCellValue(&quot;Products Header Found&quot;);
+	row_2.getCell(0).setCellStyle(style1);
+} else {
+	row_2.createCell(0).setCellValue(&quot;Products Header Not Found&quot;);
+	row_2.getCell(0).setCellStyle(style2);
+}
+
+Row row_3 = writableSheet.createRow(3);
+header_cell_status = vars.getObject(&quot;productsHeaderCells&quot;);
+productsColumnCount = vars.getObject(&quot;productsColumnCount&quot;);
+if (!header_cell_status.equals(&quot;Not Found&quot;) &amp;&amp; productsColumnCount==7) {
+	row_3.createCell(0).setCellValue(&quot;Products Header Cells Found&quot;);
+	row_3.getCell(0).setCellStyle(style1);
+} else {
+	row_3.createCell(0).setCellValue(&quot;Unknown Products Header&quot;);
+	row_3.getCell(0).setCellStyle(style2);
+}
+
+Row row_4 = writableSheet.createRow(4);
+//user = vars.get(&quot;user&quot;);
+user_length = vars.getObject(&quot;user_length&quot;);
+if (user_length!=0) {
+	row_4.createCell(0).setCellValue(&quot;User Value Found&quot;);
+	row_4.getCell(0).setCellStyle(style1);
+} else {
+	row_4.createCell(0).setCellValue(&quot;User Value Not Found&quot;);
+	row_4.getCell(0).setCellStyle(style2);
+}
+
+writableSheet.autoSizeColumn(0);
+
+try {
+	OutputStream writableExcelFile = new FileOutputStream(new File(&quot;${Log}&quot;));
+	writableWorkbook.write(writableExcelFile);
+	writableExcelFile.close();
+	writableWorkbook.close();
+} catch (IOException ex) {
+            ex.printStackTrace();
+}
+
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 - Write Log(certs)" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+import org.apache.jmeter.services.FileServer;
+
+Log = props.get(&quot;Log1&quot;);
+
+FileInputStream file = new FileInputStream(&quot;${Log}&quot;);
+XSSFWorkbook writableWorkbook = new XSSFWorkbook (file)
+Sheet writableSheet=writableWorkbook.getSheet(&quot;${Certificates_Log}&quot;)
+
+XSSFFont font = writableWorkbook.createFont();
+font.setFontHeightInPoints((short)14);
+//font.setFontName(&quot;Arial&quot;);
+//font.setColor(IndexedColors.BLUE.getIndex());
+font.setBold(true);
+font.setItalic(false);
+
+XSSFCellStyle style1 = writableWorkbook.createCellStyle();
+style1.setFont(font);
+style1.setFillForegroundColor(IndexedColors.GREEN.getIndex());
+style1.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style1.setAlignment(HorizontalAlignment.CENTER);
+style1.setBorderBottom(BorderStyle.MEDIUM);
+style1.setBorderRight(BorderStyle.MEDIUM);
+style1.setLocked(true);
+
+XSSFCellStyle style2 = writableWorkbook.createCellStyle();
+style2.setFont(font);
+style2.setFillForegroundColor(IndexedColors.RED.getIndex());
+style2.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style2.setAlignment(HorizontalAlignment.CENTER);
+style2.setBorderBottom(BorderStyle.MEDIUM);
+style2.setBorderRight(BorderStyle.MEDIUM);
+style2.setLocked(true);
+
+Row row_0 = writableSheet.createRow(0);
+readableWorkBook = vars.getObject(&quot;readableWorkBook&quot;);
+if (!readableWorkBook.equals(null)) {
+	row_0.createCell(0).setCellValue(&quot;Readable Workbook Found&quot;);
+	row_0.getCell(0).setCellStyle(style1);
+} else {
+	row_0.createCell(0).setCellValue(&quot;Readable Workbook Not Found&quot;);
+	row_0.getCell(0).setCellStyle(style2);
+}
+
+Row row_1 = writableSheet.createRow(1);
+readableSheet = vars.getObject(&quot;certificatesSheet&quot;);
+if (!readableSheet.equals(null)) {
+	row_1.createCell(0).setCellValue(&quot;Certificates Sheet Found&quot;);
+	row_1.getCell(0).setCellStyle(style1);
+} else {
+	row_1.createCell(0).setCellValue(&quot;Certificates Sheet Not Found&quot;);
+	row_1.getCell(0).setCellStyle(style2);
+}
+
+Row row_2 = writableSheet.createRow(2);
+header = vars.getObject(&quot;certificatesHeader&quot;);
+if (!header.equals(null)) {
+	row_2.createCell(0).setCellValue(&quot;Certificate Header Found&quot;);
+	row_2.getCell(0).setCellStyle(style1);
+} else {
+	row_2.createCell(0).setCellValue(&quot;Certificate Header Not Found&quot;);
+	row_2.getCell(0).setCellStyle(style2);
+}
+
+Row row_3 = writableSheet.createRow(3);
+header_cell_status = vars.getObject(&quot;certificatesHeaderCells&quot;);
+certificatesColumnCount = vars.getObject(&quot;certificatesColumnCount&quot;);
+if (!header_cell_status.equals(&quot;Not Found&quot;) &amp;&amp; certificatesColumnCount==16) {
+	row_3.createCell(0).setCellValue(&quot;Certificates Header Cells Found&quot;);
+	row_3.getCell(0).setCellStyle(style1);
+} else {
+	row_3.createCell(0).setCellValue(&quot;Unkown Certificate Header&quot;);
+	row_3.getCell(0).setCellStyle(style2);
+}
+
+Row row_4 = writableSheet.createRow(4);
+//user = vars.get(&quot;user&quot;);
+user_length = vars.getObject(&quot;user_length&quot;);
+if (user_length!=0) {
+	row_4.createCell(0).setCellValue(&quot;User Value Found&quot;);
+	row_4.getCell(0).setCellStyle(style1);
+} else {
+	row_4.createCell(0).setCellValue(&quot;User Value Not Found&quot;);
+	row_4.getCell(0).setCellStyle(style2);
+}
+
+writableSheet.autoSizeColumn(0);
+
+try {
+	OutputStream writableExcelFile = new FileOutputStream(new File(&quot;${Log}&quot;));
+	writableWorkbook.write(writableExcelFile);
+	writableExcelFile.close();
+	writableWorkbook.close();
+} catch (IOException ex) {
+            ex.printStackTrace();
+}
+
+SampleResult.setStopTestNow(true);	
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="1.Create Products Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <stringProp name="TestPlan.comments">3rd party model creation</stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Read Excel File" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.*;
+import java.lang.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+
+Ingestion_Template = props.get(&quot;Ingestion_Template&quot;);
+user = props.get(&quot;user&quot;);
+vars.put(&quot;user&quot;, user);
+
+FileInputStream file = new FileInputStream(&quot;${Ingestion_Template}&quot;);
+XSSFWorkbook readableWorkBook = new XSSFWorkbook (file);
+Sheet productsSheet=readableWorkBook.getSheet(&quot;${Products_Sheet}&quot;);
+vars.putObject(&quot;productsSheet&quot;,productsSheet);
+
+int rowCount = productsSheet.getPhysicalNumberOfRows();
+//log.info(&quot;Total Rows in the Sheet: &quot; + rowCount);
+int columnCount=productsSheet.getRow(0).getPhysicalNumberOfCells();
+vars.putObject(&quot;productsColumnCount&quot;,columnCount);
+//log.info(&quot;Total Columns in the Sheet: &quot; + columnCount);
+int lastRowNumber=productsSheet.getLastRowNum();
+//log.info(&quot;Last Row Number: &quot; + lastRowNumber);
+int lastColumnNumber=productsSheet.getRow(0).getLastCellNum();
+//log.info(&quot;Last Column Number: &quot; + lastColumnNumber);
+
+int loop_count
+vars.put(&quot;loop_count&quot;,Integer.toString(lastRowNumber));
+
+readableWorkBook.close();
+file.close();</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Write Header" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+import org.apache.jmeter.services.FileServer;
+
+Log1 = props.get(&quot;Log1&quot;);
+
+FileInputStream file = new FileInputStream(&quot;${Log1}&quot;);
+XSSFWorkbook writableWorkbook = new XSSFWorkbook (file)
+Sheet writableSheet=writableWorkbook.getSheet(&quot;${Products_Log}&quot;)
+
+Row product_header = writableSheet.createRow(0);
+
+XSSFCellStyle style1 = writableWorkbook.createCellStyle();
+XSSFFont font = writableWorkbook.createFont();
+//font.setFontHeightInPoints((short)10);
+//font.setFontName(&quot;Arial&quot;);
+//font.setColor(IndexedColors.BLUE.getIndex());
+font.setBold(true);
+font.setItalic(false);
+style1.setFont(font);
+style1.setFillForegroundColor(IndexedColors.BLUE_GREY.getIndex());
+style1.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style1.setAlignment(HorizontalAlignment.CENTER);
+style1.setBorderBottom(BorderStyle.MEDIUM);
+style1.setBorderRight(BorderStyle.MEDIUM);
+style1.setLocked(true);
+
+XSSFCellStyle style2 = writableWorkbook.createCellStyle();
+style2.setFont(font);
+style2.setFillForegroundColor(IndexedColors.SEA_GREEN.getIndex());
+style2.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style2.setAlignment(HorizontalAlignment.CENTER);
+style2.setBorderBottom(BorderStyle.MEDIUM);
+style2.setBorderRight(BorderStyle.MEDIUM);
+style2.setLocked(true);
+
+product_header.createCell(0).setCellValue(&quot;Owner PSN&quot;);
+product_header.getCell(0).setCellStyle(style1);
+
+product_header.createCell(1).setCellValue(&quot;Product Type&quot;);
+product_header.getCell(1).setCellStyle(style1);
+
+product_header.createCell(2).setCellValue(&quot;Model Name&quot;);
+product_header.getCell(2).setCellStyle(style1);
+
+product_header.createCell(3).setCellValue(&quot;Message&quot;);
+product_header.getCell(3).setCellStyle(style2);
+	
+try {
+//	OutputStream writableExcelFile = new FileOutputStream(new File(script_directory+&quot;${Log1}&quot;));
+	OutputStream writableExcelFile = new FileOutputStream(new File(&quot;${Log1}&quot;));
+	vars.putObject(&quot;writableExcelFile&quot;,writableExcelFile);
+	writableWorkbook.write(writableExcelFile);
+	writableExcelFile.close();
+	writableWorkbook.close();
+	sleep (1000);
+} catch (IOException ex) {
+            ex.printStackTrace();
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller " enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="TestPlan.comments">${loop_count}</stringProp>
+          <stringProp name="LoopController.loops">${loop_count}</stringProp>
+        </LoopController>
+        <hashTree>
+          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+            <stringProp name="CounterConfig.start">1</stringProp>
+            <stringProp name="CounterConfig.end"></stringProp>
+            <stringProp name="CounterConfig.incr">1</stringProp>
+            <stringProp name="CounterConfig.name">counter</stringProp>
+            <stringProp name="CounterConfig.format"></stringProp>
+            <boolProp name="CounterConfig.per_user">false</boolProp>
+          </CounterConfig>
+          <hashTree/>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Validate Mandatory values" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+
+Ingestion_Template = props.get(&quot;Ingestion_Template&quot;);
+
+FileInputStream file = new FileInputStream(&quot;${Ingestion_Template}&quot;);
+XSSFWorkbook readableWorkBook = new XSSFWorkbook (file);
+Sheet productsSheet=readableWorkBook.getSheet(&quot;${Products_Sheet}&quot;);
+
+int counter_int = vars.get(&apos;counter&apos;).toInteger();
+readableRow = productsSheet.getRow(counter_int);
+productsColumnCount = vars.getObject(&quot;productsColumnCount&quot;).toInteger();
+
+DataFormatter df= new DataFormatter();
+for(int i =0; i&lt; productsColumnCount; ++i) {
+    cell_value = readableRow.getCell(i, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+    //log.info(&quot;cell_value&quot; + cell_value);
+    String str = cell_value;
+    cell_variable = &quot;cell_&quot;+ i +&quot;_row_&quot;+counter_int;
+    String owner_str = &quot;cell_&quot;+ 0 +&quot;_row_&quot;+counter_int;
+    if(cell_value==null || cell_value.getCellType() == CellType.BLANK) {
+	vars.put(&quot;${cell_variable}&quot;, &quot;&quot;);
+    }
+    else if (owner_str.substring(0,2)==&quot;0&apos;&quot;){
+    	String cell_str = df.formatCellValue(cell_value);
+     vars.put(&quot;${cell_variable}&quot;, cell_str.replace(&quot;&apos;&quot;, &quot;&quot;).trim());
+	//log.info(cell_variable+ &quot;: &quot; + cell_value);
+	} 
+    else{
+    	String cell_str = df.formatCellValue(cell_value);
+     vars.put(&quot;${cell_variable}&quot;, cell_str.replace(&apos;\&quot;&apos;, &apos;\\\&quot;&apos;).trim());
+    }    
+}
+
+vars.put(&quot;Mandatory values_owner&quot;, &quot;&quot;);
+vars.put(&quot;Mandatory values_product_type&quot;, &quot;&quot;);
+vars.put(&quot;Mandatory values_model_name&quot;, &quot;&quot;);	
+
+Owner_PSN_variable = &quot;cell_0_row_&quot;+counter_int;
+Owner_PSN = vars.get(Owner_PSN_variable);
+log.info(&quot;Owner_PSN:&quot; + Owner_PSN);
+if(Owner_PSN.equals(&quot;&quot;)){
+	vars.put(&quot;Mandatory values_owner&quot;, &quot;Owner_PSN&quot;);
+}
+
+Product_Type_variable = &quot;cell_1_row_&quot;+counter_int;
+Product_Type = vars.get(Product_Type_variable);
+log.info(&quot;Product_Type:&quot; + Product_Type);
+if(Product_Type.equals(&quot;&quot;)){
+	vars.put(&quot;Mandatory values_product_type&quot;, &quot; &amp; Product_Type&quot;);
+}
+
+Model_Name_variable = (&quot;cell_3_row_&quot;+counter_int);
+Model_Name = vars.get(Model_Name_variable);
+log.info(&quot;Model_Name:&quot; + Model_Name);
+if(Model_Name.equals(&quot;&quot;)){
+	vars.put(&quot;Mandatory values_model_name&quot;, &quot; &amp; Model_Name&quot;);
+}
+
+if(!Owner_PSN.equals(&quot;&quot;) &amp;&amp; !Product_Type.equals(&quot;&quot;) &amp;&amp; !Model_Name.equals(&quot;&quot;)) {
+	vars.put(&quot;Mandatory values&quot;, &quot;Found&quot;);
+} else{
+	vars.put(&quot;Mandatory values&quot;, &quot;Not Found&quot;);
+}
+
+readableWorkBook.close();
+file.close();</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Found (Mandatory values)" enabled="true">
+            <stringProp name="IfController.condition">${__groovy((&quot;${Mandatory values}&quot;==&quot;Found&quot;))}</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">true</boolProp>
+          </IfController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Getting an Access Token for IP" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="grant_type" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${grant_type}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">grant_type</stringProp>
+                  </elementProp>
+                  <elementProp name="scope" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${scope}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">scope</stringProp>
+                  </elementProp>
+                  <elementProp name="client_id" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${__V(client_id_${environment})}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">client_id</stringProp>
+                  </elementProp>
+                  <elementProp name="client_secret" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${__V(client_secret_${environment})}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">client_secret</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">login.microsoftonline.com</stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/ul.onmicrosoft.com/oauth2/token</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Access_Token " enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">access_token</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$..access_token</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">Access_Tocken_Not_Found</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+            </hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Access Token" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">import java.text.*;
+import java.util.*;
+
+String s = &quot;access_token&quot;;
+String token = vars.get(s);
+
+// Trying to set property variable (Global Variable)
+props.put(&quot;Access_Token&quot;, token);
+
+//${__setProperty(Access_Token, ${access_token})};</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - Create third party Product" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+  &quot;data&quot;: {&#xd;
+    &quot;assets&quot;: [&#xd;
+      {&#xd;
+        &quot;ownerReference&quot;: &quot;${__V(cell_0_row_${counter})}&quot;,&#xd;
+        &quot;productType&quot;: &quot;${__V(cell_1_row_${counter})}&quot;,&#xd;
+        &quot;familySeries&quot;: &quot;${__V(cell_2_row_${counter})}&quot;,&#xd;
+        &quot;modelName&quot;: &quot;${__V(cell_3_row_${counter})}&quot;,&#xd;
+        &quot;modelDesignation&quot;: &quot;${__V(cell_4_row_${counter})}&quot;,&#xd;
+        &quot;productIdentifier&quot;: &quot;${__V(cell_5_row_${counter})}&quot;,&#xd;
+        &quot;attributes&quot;: [],&#xd;
+        &quot;comments&quot;: [&#xd;
+          &quot;${__V(cell_6_row_${counter})}&quot;&#xd;
+        ],&#xd;
+        &quot;createdBy&quot;: &quot;${user}&quot;&#xd;
+      }&#xd;
+    ]&#xd;
+  }&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">${Environment_Path}${environment}/external/assets</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer ${__property(Access_Token)}</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Product code, status, message" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">product_code;product_status;product_message</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$..code;$..status;$..message</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">product_code_not_found;product_status_not_found;product_message_not_found</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Assets List" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">assets_list</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.assets</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">assets_list_not_found</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - assetId" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">asset_id</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$..assetId</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">asset_id_not_found</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - ulAssetId" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">ul_asset_id</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$..ulAssetId</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">ul_asset_id_not_found</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Attributes List" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">attributes_list</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$..attributes</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                <stringProp name="Sample.scope">variable</stringProp>
+                <stringProp name="Scope.variable">assets_list</stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">attributes_list_not_found</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Comments List" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">comments_list</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$..comments</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">comments_list_not_found</stringProp>
+                <stringProp name="Sample.scope">variable</stringProp>
+                <stringProp name="Scope.variable">assets_list</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - hasError List" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">hasError_list</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$..hasError</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">hasError_list_not_found</stringProp>
+                <stringProp name="Sample.scope">variable</stringProp>
+                <stringProp name="Scope.variable">assets_list</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 - Write Log(product)" enabled="true">
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+
+int counter_int = vars.get(&apos;counter&apos;).toInteger();
+
+Log1 = props.get(&quot;Log1&quot;);
+
+FileInputStream file = new FileInputStream(&quot;${Log1}&quot;);
+XSSFWorkbook writableWorkbook = new XSSFWorkbook (file);
+Sheet writableSheet=writableWorkbook.getSheet(&quot;${Products_Log}&quot;)
+
+Row row = writableSheet.createRow(counter_int);
+
+XSSFCellStyle style3 = writableWorkbook.createCellStyle();
+style3.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+style3.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style3.setBorderRight(BorderStyle.THIN);
+style3.setBorderLeft(BorderStyle.THIN);
+style3.setBorderBottom(BorderStyle.THIN);
+style3.setLocked(true);
+
+cell_variable_0 = &quot;cell_0_row_&quot;+counter_int;
+cell_value_0 = vars.get(cell_variable_0);
+row.createCell(0).setCellValue(cell_value_0);
+row.getCell(0).setCellStyle(style3);
+
+cell_variable_1 = &quot;cell_1_row_&quot;+counter_int;
+cell_value_1 = vars.get(cell_variable_1);
+row.createCell(1).setCellValue(cell_value_1);
+row.getCell(1).setCellStyle(style3);
+
+cell_variable_2 = &quot;cell_3_row_&quot;+counter_int;
+cell_value_2 = vars.get(cell_variable_2);
+row.createCell(2).setCellValue(cell_value_2);
+row.getCell(2).setCellStyle(style3);
+
+XSSFCellStyle style4 = writableWorkbook.createCellStyle();
+style4.setFillForegroundColor(IndexedColors.LIGHT_GREEN.getIndex());
+style4.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style4.setBorderRight(BorderStyle.THIN);
+style4.setBorderLeft(BorderStyle.THIN);
+style4.setBorderBottom(BorderStyle.THIN);
+style4.setLocked(true);
+
+XSSFCellStyle style6 = writableWorkbook.createCellStyle();
+style6.setFillForegroundColor(IndexedColors.LIGHT_ORANGE.getIndex());
+style6.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style6.setBorderRight(BorderStyle.THIN);
+style6.setBorderLeft(BorderStyle.THIN);
+style6.setBorderBottom(BorderStyle.THIN);
+style6.setLocked(true);
+
+cell_value_3 = vars.get(&quot;product_message&quot;);
+row.createCell(3).setCellValue(cell_value_3);
+
+if(&quot;${product_code}&quot; == &quot;200&quot;){
+	row.getCell(3).setCellStyle(style4);
+} else{
+	row.getCell(3).setCellStyle(style6);
+}
+
+writableSheet.autoSizeColumn(3);
+
+try {
+	OutputStream writableExcelFile = new FileOutputStream(&quot;${Log1}&quot;);
+	writableWorkbook.write(writableExcelFile);
+	writableExcelFile.close();
+	writableWorkbook.close();
+	sleep (1000);
+} catch (IOException ex) {
+            ex.printStackTrace();
+}
+
+vars.put(&quot;product_code&quot;, null);</stringProp>
+                <stringProp name="scriptLanguage">groovy</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Not Found (Mandatory values)" enabled="true">
+            <stringProp name="IfController.condition">${__groovy((&quot;${Mandatory values}&quot;!=&quot;Found&quot;))}</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">true</boolProp>
+          </IfController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 - Write Log(product)" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+
+int counter_int = vars.get(&apos;counter&apos;).toInteger();
+
+Log1 = props.get(&quot;Log1&quot;);
+
+FileInputStream file = new FileInputStream(&quot;${Log1}&quot;);
+XSSFWorkbook writableWorkbook = new XSSFWorkbook (file)
+Sheet writableSheet=writableWorkbook.getSheet(&quot;${Products_Log}&quot;)
+
+Row row = writableSheet.createRow(counter_int);
+
+XSSFCellStyle style3 = writableWorkbook.createCellStyle();
+style3.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+style3.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style3.setBorderRight(BorderStyle.THIN);
+style3.setBorderLeft(BorderStyle.THIN);
+style3.setBorderBottom(BorderStyle.THIN);
+style3.setLocked(true);
+
+cell_variable_0 = &quot;cell_0_row_&quot;+counter_int;
+cell_value_0 = vars.get(cell_variable_0);
+row.createCell(0).setCellValue(cell_value_0);
+row.getCell(0).setCellStyle(style3);
+
+cell_variable_1 = &quot;cell_1_row_&quot;+counter_int;
+cell_value_1 = vars.get(cell_variable_1);
+row.createCell(1).setCellValue(cell_value_1);
+row.getCell(1).setCellStyle(style3);
+
+cell_variable_2 = &quot;cell_3_row_&quot;+counter_int;
+cell_value_2 = vars.get(cell_variable_2);
+row.createCell(2).setCellValue(cell_value_2);
+row.getCell(2).setCellStyle(style3);
+
+XSSFCellStyle style5 = writableWorkbook.createCellStyle();
+style5.setFillForegroundColor(IndexedColors.RED.getIndex());
+style5.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style5.setBorderRight(BorderStyle.THIN);
+style5.setBorderLeft(BorderStyle.THIN);
+style5.setBorderBottom(BorderStyle.THIN);
+style5.setLocked(true);
+
+owner_flag = vars.get(&apos;Mandatory values_owner&apos;);
+product_type_flag = vars.get(&apos;Mandatory values_product_type&apos;);
+model_name_flag = vars.get(&apos;Mandatory values_model_name&apos;);
+
+Mandatory_Values_Missing = owner_flag + product_type_flag + model_name_flag + &apos; Not-Found&apos;;
+
+cell_value = Mandatory_Values_Missing.replaceAll(&quot;^ &amp;&quot;, &quot;&quot;).trim();
+row.createCell(3).setCellValue(cell_value);
+row.getCell(3).setCellStyle(style5);
+writableSheet.autoSizeColumn(3);
+
+try {
+	OutputStream writableExcelFile = new FileOutputStream(&quot;${Log1}&quot;);
+	writableWorkbook.write(writableExcelFile);
+	writableExcelFile.close();
+	writableWorkbook.close();
+	sleep (1000);
+} catch (IOException ex) {
+            ex.printStackTrace();
+}</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="2.Create Certificates Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Write Header" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+import org.apache.jmeter.services.FileServer;
+
+Log1 = props.get(&quot;Log1&quot;);
+
+FileInputStream file = new FileInputStream(&quot;${Log1}&quot;);
+XSSFWorkbook writableWorkbook = new XSSFWorkbook (file)
+Sheet writableSheet=writableWorkbook.getSheet(&quot;${Certificates_Log}&quot;)
+
+XSSFCellStyle style1 = writableWorkbook.createCellStyle();
+XSSFFont font = writableWorkbook.createFont();
+//font.setFontHeightInPoints((short)10);
+//font.setFontName(&quot;Arial&quot;);
+//font.setColor(IndexedColors.BLUE.getIndex());
+font.setBold(true);
+font.setItalic(false);
+style1.setFont(font);
+style1.setFillForegroundColor(IndexedColors.BLUE_GREY.getIndex());
+style1.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style1.setAlignment(HorizontalAlignment.CENTER);
+style1.setBorderBottom(BorderStyle.MEDIUM);
+style1.setBorderRight(BorderStyle.MEDIUM);
+style1.setLocked(true);
+
+XSSFCellStyle style2 = writableWorkbook.createCellStyle();
+style2.setFont(font);
+style2.setFillForegroundColor(IndexedColors.SEA_GREEN.getIndex());
+style2.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style2.setAlignment(HorizontalAlignment.CENTER);
+style2.setBorderBottom(BorderStyle.MEDIUM);
+style2.setBorderRight(BorderStyle.MEDIUM);
+style2.setLocked(true);
+
+Row product_header = writableSheet.createRow(0);
+product_header.createCell(0).setCellValue(&quot;Owner PSN&quot;);
+product_header.getCell(0).setCellStyle(style1);
+
+product_header.createCell(1).setCellValue(&quot;Certification Scheme&quot;);
+product_header.getCell(1).setCellStyle(style1);
+
+product_header.createCell(2).setCellValue(&quot;Certificate number&quot;);
+product_header.getCell(2).setCellStyle(style1);
+
+//product_header.createCell(3).setCellValue(&quot;Status&quot;);
+//product_header.getCell(3).setCellStyle(style2);
+
+product_header.createCell(3).setCellValue(&quot;Message&quot;);
+product_header.getCell(3).setCellStyle(style2);
+	
+try {
+//	OutputStream writableExcelFile = new FileOutputStream(new File(script_directory+&quot;${Log1}&quot;));
+	OutputStream writableExcelFile = new FileOutputStream(new File(&quot;${Log1}&quot;));
+	vars.putObject(&quot;writableExcelFile&quot;,writableExcelFile);
+	writableWorkbook.write(writableExcelFile);
+	writableExcelFile.close();
+	writableWorkbook.close();
+	sleep (1000);
+} catch (IOException ex) {
+            ex.printStackTrace();
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Read Unique Mandatory values" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.*;
+import java.text.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+
+//readableSheet = vars.getObject(&quot;certificatesSheet&quot;);
+Ingestion_Template = props.get(&quot;Ingestion_Template&quot;);
+user = props.get(&quot;user&quot;);
+vars.put(&quot;user&quot;, user);
+
+FileInputStream file = new FileInputStream(&quot;${Ingestion_Template}&quot;);
+XSSFWorkbook readableWorkBook = new XSSFWorkbook (file);
+Sheet readableSheet=readableWorkBook.getSheet(&quot;${Certificates_Sheet}&quot;);
+vars.putObject(&quot;certificatesSheet&quot;,readableSheet);
+
+int rowCount = readableSheet.getPhysicalNumberOfRows();
+//log.info(&quot;Total Rows in the Sheet: &quot; + rowCount);
+int certificatesColumnCount=readableSheet.getRow(0).getPhysicalNumberOfCells();
+vars.putObject(&quot;certificatesColumnCount&quot;, certificatesColumnCount);
+//log.info(&quot;Total Columns in the Sheet: &quot; + columnCount);
+int lastRowNumber=readableSheet.getLastRowNum();
+vars.putObject(&quot;lastRowNumber&quot;, lastRowNumber);
+//log.info(&quot;Last Row Number: &quot; + lastRowNumber);
+int lastColumnNumber=readableSheet.getRow(0).getLastCellNum();
+//log.info(&quot;Last Column Number: &quot; + lastColumnNumber);
+
+XSSFRow row;
+XSSFCell cell;
+
+List sheetData = new ArrayList();
+List mpSheetData = new ArrayList();
+
+Iterator rowIterator = readableSheet.rowIterator();
+DataFormatter df= new DataFormatter();
+
+try {
+	for(int r = 1; r &lt; rowCount; r++) {
+//		log.info(&quot;Line:&quot; + r + &quot; Starts Here&quot;);
+		row = readableSheet.getRow(r)
+		Iterator cellIterator = row.cellIterator();
+	     List data = new ArrayList();
+	     List rowData = new ArrayList();
+	     List mpRowData = new ArrayList();
+		for(int i =0; i&lt; certificatesColumnCount; ++i) {
+		    cell = row.getCell(i, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+		    String cell_data = &quot;&quot;;
+		    if(cell==null || cell.getCellType()==CellType.BLANK) {
+		        cell_data = &quot;&quot;;
+		    }else if(cell.getCellType()==CellType.NUMERIC &amp;&amp; DateUtil.isCellDateFormatted(cell)){
+			    	Date cellValue = cell.getDateCellValue();
+			    	SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);
+			    	date = sdf.format(cellValue);
+//			    	log.info(&quot;row_&quot; + r + &quot;_Cell_&quot; + i + &quot;:&quot; + date);
+			     cell_data = date;
+		    }else {
+		        String str = df.formatCellValue(cell);
+//		        log.info(&quot;row_&quot; + r + &quot;_Cell_&quot; + i + &quot;:&quot; + str);
+		        cell_data = str.trim();
+		    }
+		    data.add(cell_data);
+		}
+		rowData = data;
+		vars.putObject(&quot;rowData_&quot; + r, rowData);
+//		log.info(&quot;rowData&quot; + r + &quot;:&quot; + rowData);
+		mpRowData.addAll(rowData[0], rowData[2], rowData[3]);
+		vars.putObject(&quot;mpRowData_&quot; + r, mpRowData);
+//		log.info(&quot;mpRowData_&quot; + r + &quot;:&quot; + mpRowData);
+		sheetData.add(data);
+//		log.info(&quot;sheetData&quot; + r + &quot;:&quot; + sheetData);
+		mpSheetData.add(mpRowData);
+		vars.putObject(&quot;mpSheetData&quot;, mpSheetData);
+//		log.info(&quot;mpSheetData: &quot; + mpSheetData);
+//		log.info(&quot;Line:&quot; + r + &quot; End Here... !&quot;+ &apos;\n&apos;);
+	}
+} catch (Exception e) {
+     log.info(&quot;Readable Header Exception: &quot; + e.getMessage());
+}
+
+result2 = null;
+
+def compare_lists(List list1, List list2){
+	for(int l=0; l&lt;3; ++l){
+		if(list1[l] == list2[l] || list2[l] == &quot;&quot;){
+			result = &quot;Same cerificate&quot;;
+		}else{
+			result = &quot;Different cerificate&quot;;
+			vars.put(&quot;lists_status&quot;, result);
+		}
+	}
+	return result;
+}
+
+mpSheetData = vars.getObject(&quot;mpSheetData&quot;);
+mpSheetData_size = mpSheetData.size();
+//log.info(&quot;mpSheetData_size: &quot; + mpSheetData_size);
+
+List mpUniqueCerts = new ArrayList();
+mpUniqueCerts.add(vars.getObject(&quot;mpRowData_1&quot;));
+
+List mpUniqueCertRows = new ArrayList();
+mpUniqueCertRows.add(1);
+
+lists_status = null;
+unique_certificates=1;
+list1 = vars.getObject(&quot;mpRowData_1&quot;);
+
+for(int m=1; m&lt;mpSheetData_size; ++m) {
+	mpRowData_variable = &quot;mpRowData_&quot; + (m+1);
+	mpRowData_value = vars.getObject(mpRowData_variable);
+//	log.info(&quot;list1: &quot; + list1);
+	compare_lists(list1, mpRowData_value);
+	lists_status = vars.get(&quot;lists_status&quot;);
+//	log.info(&quot;lists_status:&quot; + lists_status);
+	if(lists_status!=&quot;Different cerificate&quot; || lists_status==null){
+	}else{
+		list1 = mpRowData_value;
+		unique_certificates = unique_certificates+1;
+		mpUniqueCerts.add(list1);
+		mpUniqueCertRows.add(m+1);		
+	}
+	vars.put(&quot;lists_status&quot;, null);
+}
+//log.info(&quot;unique_certificates: &quot; + unique_certificates);
+vars.putObject(&quot;mpUniqueCerts&quot;, mpUniqueCerts);
+//log.info(&quot;mpUniqueCerts: &quot; + mpUniqueCerts);
+vars.putObject(&quot;mpUniqueCertRows&quot;, mpUniqueCertRows);
+//log.info(&quot;mpUniqueCertRows: &quot; + mpUniqueCertRows);
+
+int loop_count
+vars.put(&quot;loop_count&quot;,Integer.toString(unique_certificates));
+
+readableWorkBook.close();
+file.close();
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - Country_List" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">cc-uat.myportal.ul.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/Global/Config/CountryList.json</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">response</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.Countries</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">countyr_list_not_found</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">import java.text.*;
+import java.util.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+JSONArray country_list = new JSONArray(vars.get(&quot;response&quot;).toString()); 
+int country_list_count = country_list.length(); // get totalCount of all jsonObjects
+List&lt;String&gt; country_list_final_value = new ArrayList&lt;String&gt;();
+for(int ver=0 ; ver &lt; country_list_count; ver++){ // iterate through jsonArray
+	JSONObject country_list_Object = country_list.getJSONObject(ver);
+	String country_list_name_value = country_list_Object.getString(&quot;name&quot;); 
+	country_list_final_value.add(country_list_name_value);		
+}
+
+vars.put(&quot;Country_List&quot;, country_list_final_value.toString());
+
+//log.info(&quot;country_list:&quot; + country_list_final_value.toString());</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="TestPlan.comments">${loop_count}</stringProp>
+          <stringProp name="LoopController.loops">${loop_count}</stringProp>
+        </LoopController>
+        <hashTree>
+          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+            <stringProp name="CounterConfig.start">0</stringProp>
+            <stringProp name="CounterConfig.end"></stringProp>
+            <stringProp name="CounterConfig.incr">1</stringProp>
+            <stringProp name="CounterConfig.name">counter</stringProp>
+            <stringProp name="CounterConfig.format"></stringProp>
+            <boolProp name="CounterConfig.per_user">false</boolProp>
+          </CounterConfig>
+          <hashTree/>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Global hasAsset Array" enabled="true">
+            <stringProp name="TestPlan.comments">Initialization</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.json.JSONArray;
+
+props.put(&quot;hasAssets_array_final&quot;, new ArrayList());
+
+//log.info(&quot;hasAssets_array_final:&quot; + props.get(&quot;hasAssets_array_final&quot;).toString());</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Validate Mandatory values" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.lang.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+
+Ingestion_Template = props.get(&quot;Ingestion_Template&quot;);
+
+FileInputStream file = new FileInputStream(&quot;${Ingestion_Template}&quot;);
+XSSFWorkbook readableWorkBook = new XSSFWorkbook (file);
+Sheet readableSheet=readableWorkBook.getSheet(&quot;${Certificates_Sheet}&quot;);
+
+int counter_int = vars.get(&apos;counter&apos;).toInteger();
+mpUniqueCertRows = vars.getObject(&quot;mpUniqueCertRows&quot;);
+certificatesColumnCount = vars.getObject(&quot;certificatesColumnCount&quot;).toInteger();
+lastRowNumber = vars.getObject(&quot;lastRowNumber&quot;).toInteger();
+//log.info(&quot;lastRowNumber: &quot; + lastRowNumber);
+
+int current_row = mpUniqueCertRows[counter_int].toInteger();
+//log.info(&quot;current_row: &quot; + current_row);
+vars.putObject(&quot;current_row&quot;, current_row);
+
+int next_row
+if(mpUniqueCertRows[counter_int+1] != null){
+	next_row = mpUniqueCertRows[counter_int+1].toInteger();
+}else{
+	next_row = (lastRowNumber+1).toInteger();
+}
+vars.putObject(&quot;next_row&quot;, next_row);
+
+if(next_row-current_row == 1){
+	vars.put(&quot;Data Rows&quot;, &quot;Single&quot;);
+}else{
+	vars.put(&quot;Data Rows&quot;, &quot;Multiple&quot;);
+}
+
+XSSFRow row;
+XSSFCell cell;
+DataFormatter df= new DataFormatter();
+for(int r =current_row; r&lt;next_row; ++r){
+//	log.info(&quot;row: &quot; + r);
+	readableRow = readableSheet.getRow(r);
+	for(int i =0; i&lt; certificatesColumnCount; ++i) {
+	    cell_value = readableRow.getCell(i, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+	    String str = cell_value;
+	    cell_variable = &quot;cell_&quot;+ i +&quot;_row_&quot;+r;
+	    String owner_str = &quot;cell_&quot;+ 0 +&quot;_row_&quot;+r;
+	    if(cell_value==null || cell_value.getCellType() == CellType.BLANK) {
+		vars.put(&quot;${cell_variable}&quot;, &quot;&quot;);
+//	     log.info(cell_variable+ &quot;: &quot; + &quot;Empty&quot;);
+	    } 
+	    else if(cell_value.getCellType()==CellType.NUMERIC &amp;&amp; DateUtil.isCellDateFormatted(cell_value)){
+	    	Date date_value = cell_value.getDateCellValue();
+	    	SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);
+	    	date = sdf.format(date_value);
+	     vars.put(&quot;${cell_variable}&quot;, date);
+//	     log.info(cell_variable+ &quot;: &quot; + date);
+		}
+	    else if(owner_str.substring(0,2)==&quot;0&apos;&quot;){
+	    	String cell_str = df.formatCellValue(cell_value);
+	     vars.put(&quot;${cell_variable}&quot;, cell_str.replace(&quot;&apos;&quot;, &quot;&quot;).trim());
+//	     log.info(cell_variable+ &quot;: &quot; + cell_value);
+		}
+	    else{
+	    	String cell_str = df.formatCellValue(cell_value);
+	     vars.put(&quot;${cell_variable}&quot;, cell_str.replace(&apos;\&quot;&apos;, &apos;\\\&quot;&apos;).trim());
+//	     log.info(cell_variable+ &quot;: &quot; + cell_value);
+	    }
+	}
+}
+
+vars.put(&quot;Mandatory values_owner&quot;, &quot;&quot;);
+vars.put(&quot;Mandatory values_scheme&quot;, &quot;&quot;);
+vars.put(&quot;Mandatory values_name&quot;, &quot;&quot;);	
+vars.put(&quot;Mandatory values_Issue_date&quot;, &quot;&quot;);
+
+Cert_Owner_PSN_variable = &quot;cell_0_row_&quot;+current_row;
+Cert_Owner_PSN = vars.get(Cert_Owner_PSN_variable);
+if(Cert_Owner_PSN.equals(&quot;&quot;)){
+	vars.put(&quot;Mandatory values_owner&quot;, &quot;Owner_PSN&quot;);
+}
+
+Certification_Scheme_variable = &quot;cell_3_row_&quot;+current_row;
+Certification_Scheme = vars.get(Certification_Scheme_variable);
+if (Certification_Scheme.equals(&quot;&quot;)) {
+	vars.put(&quot;Mandatory values_scheme&quot;, &quot; &amp; Certification_Scheme&quot;);
+} 
+
+Certificate_Number_variable = &quot;cell_2_row_&quot;+current_row;
+Certificate_Number = vars.get(Certificate_Number_variable);
+if (Certificate_Number.equals(&quot;&quot;)) {
+	vars.put(&quot;Mandatory values_name&quot;, &quot; &amp; Certificate_Number&quot;);	
+}
+
+Issued_Date_variable = &quot;cell_5_row_&quot;+current_row;
+Issued_Date = vars.get(Issued_Date_variable);
+if (Issued_Date.equals(&quot;&quot;)) {
+	vars.put(&quot;Mandatory values_Issue_date&quot;, &quot; &amp; Issued_Date&quot;);
+}
+
+if(!Cert_Owner_PSN.equals(&quot;&quot;) &amp;&amp; !Certificate_Number.equals(&quot;&quot;) &amp;&amp; !Certification_Scheme.equals(&quot;&quot;) &amp;&amp; !Issued_Date.equals(&quot;&quot;)) {
+	vars.put(&quot;Mandatory values&quot;, &quot;Found&quot;);
+} else{
+	vars.put(&quot;Mandatory values&quot;, &quot;Not Found&quot;);
+}
+
+readableWorkBook.close();
+file.close();</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Found (Mandatory values)" enabled="true">
+            <stringProp name="IfController.condition">${__groovy((&quot;${Mandatory values}&quot;==&quot;Found&quot;))}</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">true</boolProp>
+          </IfController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Getting an Access Token for IP" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="grant_type" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${grant_type}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">grant_type</stringProp>
+                  </elementProp>
+                  <elementProp name="scope" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${scope}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">scope</stringProp>
+                  </elementProp>
+                  <elementProp name="client_id" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${__V(client_id_${environment})}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">client_id</stringProp>
+                  </elementProp>
+                  <elementProp name="client_secret" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${__V(client_secret_${environment})}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">client_secret</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">login.microsoftonline.com</stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/ul.onmicrosoft.com/oauth2/token</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Access_Token " enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">access_token</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$..access_token</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">Access_Tocken_Not_Found</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+            </hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Access Token" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">import java.text.*;
+import java.util.*;
+
+String s = &quot;access_token&quot;;
+String token = vars.get(s);
+
+// Trying to set property variable (Global Variable)
+props.put(&quot;Access_Token&quot;, token);
+
+//${__setProperty(Access_Token, ${access_token})};</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Certificates" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+import org.json.JSONObject;
+import org.json.JSONArray;
+
+int current_row = vars.getObject(&apos;current_row&apos;).toInteger();
+vars.putObject(&quot;current_row&quot;, current_row);
+log.info(&quot;current_row: &quot; + current_row);
+int next_row = vars.getObject(&apos;next_row&apos;).toInteger();
+vars.putObject(&quot;next_row&quot;, next_row);
+log.info(&quot;next_row: &quot; + next_row);
+int cert_rows = next_row - current_row;
+log.info(&quot;cert_rows: &quot; + cert_rows);
+
+vars.put(&quot;cert_prods_loop_count&quot;,Integer.toString(cert_rows));
+
+vars.put(&quot;Product_Code&quot;, null);
+
+cert_prod_variable = &quot;certificate_&quot;+current_row+&quot;_products&quot;;
+vars.put(&quot;${cert_prod_variable}&quot;, null);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller - Certificate Products" enabled="true">
+              <boolProp name="LoopController.continue_forever">true</boolProp>
+              <stringProp name="TestPlan.comments">${cert_prods_loop_count}</stringProp>
+              <stringProp name="LoopController.loops">${cert_prods_loop_count}</stringProp>
+            </LoopController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - Paginated Product Search" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: {&#xd;
+        &quot;user&quot;: &quot;&quot;,&#xd;
+        &quot;offset&quot;: &quot;&quot;,&#xd;
+        &quot;rows&quot;: &quot;&quot;,&#xd;
+        &quot;completed&quot;:&quot;Y&quot;,&#xd;
+        &quot;accepted&quot;:&quot;Y&quot;,&#xd;
+        &quot;pdtType&quot;: &quot;External Products&quot;,&#xd;
+        &quot;searchParameters&quot;: {&#xd;
+            &quot;productType&quot;: {&#xd;
+                &quot;operator&quot;: &quot;${operator}&quot;,&#xd;
+                &quot;value&quot;: &quot;${__V(cell_15_row_${row})}&quot;&#xd;
+            },&#xd;
+            &quot;ownerReference_PartySiteID&quot;: {&#xd;
+                &quot;operator&quot;: &quot;${operator}&quot;,&#xd;
+                &quot;value&quot;: &quot;${__V(cell_0_row_${current_row})}&quot;&#xd;
+            },&#xd;
+            &quot;modelName&quot;: {&#xd;
+                &quot;operator&quot;: &quot;${operator}&quot;,&#xd;
+                &quot;value&quot;: &quot;${__V(cell_14_row_${row})}&quot;&#xd;
+            }&#xd;
+        }&#xd;
+    }&#xd;
+}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">${Environment_Path}${environment}/assets/summary</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">Authorization</stringProp>
+                      <stringProp name="Header.value">Bearer ${__property(Access_Token)}</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+                <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">false</stringProp>
+                  <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+
+current_row = vars.getObject(&quot;current_row&quot;);
+//log.info(&quot;current_row: &quot; + current_row);
+
+int loop_counter = ${__jm__Loop Controller - Certificate Products__idx};
+//log.info(&quot;loop_counter: &quot; + loop_counter);
+
+row = current_row + loop_counter;
+vars.putObject(&quot;row&quot;, row);
+
+cell_variable_14 = &quot;cell_14_row_&quot;+row;
+cell_value_14 = vars.get(cell_variable_14);
+//log.info(cell_variable_14+ &quot;: &quot; + cell_value_14);
+
+cell_variable_15 = &quot;cell_15_row_&quot;+row;
+cell_value_15 = vars.get(cell_variable_15);
+//log.info(cell_variable_15+ &quot;: &quot; + cell_value_15);</stringProp>
+                </JSR223PreProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Product Search Code,Status,Message" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">Product_Search_Code;Product_Search_Status;Product_Search_Message</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$..code;$..status;$..message</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">Product_Search_Code_Not_Found;Product_Search_Status_Not_Found;Product_Search_Message_Not_Found</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Product Count" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">Product_Count</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data..totalCount</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">Product_Count_Not_Found</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Asset_Block JSON Extractor" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">T1_Asset_Block</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data..asset</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">Asset_Block_Not_Found</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor -Build hasAssets_Array" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">false</stringProp>
+                  <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+JSONArray asset = new JSONArray(vars.get(&quot;T1_Asset_Block&quot;).toString()); 
+int asset_count = asset.length(); // get totalCount of all jsonObjects
+
+log.info(&quot;asset_count:&quot; +asset_count.toString());
+
+if (asset_count == 1){
+	JSONObject asset_Id_Object = asset.getJSONObject(0);
+	String T1_Asset_Id = asset_Id_Object.getString(&quot;assetId&quot;);
+	String T1_UL_Asset_Id = asset_Id_Object.getString(&quot;ulAssetId&quot;);
+
+	JSONArray hasAssets_array = new JSONArray();
+	
+	JSONObject asset_Id_object = new JSONObject();
+	asset_Id_object.put(&quot;fieldName&quot;, &quot;assetId&quot;);
+	asset_Id_object.put(&quot;fieldValue&quot;, T1_Asset_Id);
+	
+	JSONObject ul_asset_Id_object = new JSONObject();
+	ul_asset_Id_object.put(&quot;fieldName&quot;, &quot;ulAssetId&quot;);
+	ul_asset_Id_object.put(&quot;fieldValue&quot;, T1_UL_Asset_Id);
+	
+	JSONArray hasAssets_eD_array = new JSONArray();
+	hasAssets_eD_array.put(asset_Id_object);
+	hasAssets_eD_array.put(ul_asset_Id_object);
+	JSONObject hasAssets_eD_object = new JSONObject();
+	hasAssets_eD_object.put(&quot;entryDetails&quot;, hasAssets_eD_array);
+	hasAssets_array.put(hasAssets_eD_object);
+	log.info(&quot;hasAssets_array: &quot; + hasAssets_array);
+	props.get(&quot;hasAssets_array_final&quot;).add(hasAssets_array[0]);
+	log.info(&quot;hasAssets_array_final:&quot; + props.get(&quot;hasAssets_array_final&quot;).toString());
+}
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Product Not Found" enabled="true">
+                <stringProp name="IfController.condition">${__groovy((&quot;${Product_Count}&quot;!=&quot;1&quot;) &amp;&amp; !(&quot;${__V(cell_14_row_${row})}&quot;==&quot;&quot; &amp;&amp; &quot;${__V(cell_15_row_${row})}&quot;==&quot;&quot;))}</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+                <boolProp name="IfController.useExpression">true</boolProp>
+              </IfController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - Create Product" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">{&#xd;
+  &quot;data&quot;: {&#xd;
+    &quot;assets&quot;: [&#xd;
+      {&#xd;
+        &quot;ownerReference&quot;: &quot;${__V(cell_0_row_${current_row})}&quot;,&#xd;
+        &quot;productType&quot;: &quot;${__V(cell_15_row_${row})}&quot;,&#xd;
+        &quot;familySeries&quot;: &quot;&quot;,&#xd;
+        &quot;modelName&quot;: &quot;${__V(cell_14_row_${row})}&quot;,&#xd;
+        &quot;modelDesignation&quot;: &quot;&quot;,&#xd;
+        &quot;productIdentifier&quot;: &quot;&quot;,&#xd;
+        &quot;attributes&quot;: [],&#xd;
+        &quot;comments&quot;: [],&#xd;
+        &quot;createdBy&quot;: &quot;${user}&quot;&#xd;
+      }&#xd;
+    ]&#xd;
+  }&#xd;
+}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.protocol"></stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                  <stringProp name="HTTPSampler.path">${Environment_Path}${environment}/external/assets</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                    <collectionProp name="HeaderManager.headers">
+                      <elementProp name="" elementType="Header">
+                        <stringProp name="Header.name">Authorization</stringProp>
+                        <stringProp name="Header.value">Bearer ${__property(Access_Token)}</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </HeaderManager>
+                  <hashTree/>
+                  <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Product Code,Status,Message" enabled="true">
+                    <stringProp name="JSONPostProcessor.referenceNames">Product_Code;Product_Status;Product_Message</stringProp>
+                    <stringProp name="JSONPostProcessor.jsonPathExprs">$..code;$..status;$..message</stringProp>
+                    <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                    <stringProp name="JSONPostProcessor.defaultValues">Product_Code_Not_Found;Product_Status_Not_Found;Product_Message_Not_Found</stringProp>
+                  </JSONPostProcessor>
+                  <hashTree/>
+                  <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Asset_Block JSON Extractor" enabled="true">
+                    <stringProp name="JSONPostProcessor.referenceNames">T1_Asset_Block</stringProp>
+                    <stringProp name="JSONPostProcessor.jsonPathExprs">$.data..assets</stringProp>
+                    <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                    <stringProp name="JSONPostProcessor.defaultValues">Asset_Block_Not_Found</stringProp>
+                  </JSONPostProcessor>
+                  <hashTree/>
+                  <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor -Build hasAssets_Array" enabled="true">
+                    <stringProp name="scriptLanguage">groovy</stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="cacheKey">false</stringProp>
+                    <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+JSONArray asset = new JSONArray(vars.get(&quot;T1_Asset_Block&quot;).toString()); 
+int asset_count = asset.length(); // get totalCount of all jsonObjects
+
+log.info(&quot;asset_count:&quot; +asset_count.toString());
+
+if (asset_count == 1){
+	JSONObject asset_Id_Object = asset.getJSONObject(0);
+	String T1_Asset_Id = asset_Id_Object.getString(&quot;assetId&quot;);
+	String T1_UL_Asset_Id = asset_Id_Object.getString(&quot;ulAssetId&quot;);
+
+	JSONArray hasAssets_array = new JSONArray();
+	
+	JSONObject asset_Id_object = new JSONObject();
+	asset_Id_object.put(&quot;fieldName&quot;, &quot;assetId&quot;);
+	asset_Id_object.put(&quot;fieldValue&quot;, T1_Asset_Id);
+	
+	JSONObject ul_asset_Id_object = new JSONObject();
+	ul_asset_Id_object.put(&quot;fieldName&quot;, &quot;ulAssetId&quot;);
+	ul_asset_Id_object.put(&quot;fieldValue&quot;, T1_UL_Asset_Id);
+	
+	JSONArray hasAssets_eD_array = new JSONArray();
+	hasAssets_eD_array.put(asset_Id_object);
+	hasAssets_eD_array.put(ul_asset_Id_object);
+	JSONObject hasAssets_eD_object = new JSONObject();
+	hasAssets_eD_object.put(&quot;entryDetails&quot;, hasAssets_eD_array);
+	hasAssets_array.put(hasAssets_eD_object);
+	//log.info(&quot;hasAssets_array: &quot; + hasAssets_array);
+	props.get(&quot;hasAssets_array_final&quot;).add(hasAssets_array[0]);
+	log.info(&quot;hasAssets_array_final:&quot; + props.get(&quot;hasAssets_array_final&quot;).toString());
+}
+</stringProp>
+                  </JSR223PostProcessor>
+                  <hashTree/>
+                </hashTree>
+                <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Check Certificate Products" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">false</stringProp>
+                  <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+import org.json.JSONObject;
+import org.json.JSONArray;
+import groovy.json.JsonSlurper
+
+int current_row = vars.getObject(&apos;current_row&apos;).toInteger();
+
+cert_prod_variable = &quot;certificate_&quot;+current_row+&quot;_products&quot;;
+Product_Code = vars.get(&quot;Product_Code&quot;);
+
+log.info(&quot;Product_Code: &quot; + Product_Code);
+if(Product_Code != &quot;200&quot;){
+	vars.put(&quot;${cert_prod_variable}&quot;, &quot;Product Not Created&quot;);
+	log.info(&quot;${cert_prod_variable}&quot; + &quot;Product Not Created&quot;);
+}
+//else{
+//	vars.put(&quot;${cert_prod_variable}&quot;, &quot;Does Not Exists&quot;);
+//}
+vars.put(&quot;Product_Code&quot;, null);</stringProp>
+                </JSR223Sampler>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Certificate Products Exists" enabled="true">
+              <stringProp name="IfController.condition">${__groovy((&quot;${__V(certificate_${current_row}_products)}&quot;!=&quot;Product Not Created&quot;))}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">true</boolProp>
+            </IfController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - Create third party Certificate" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: {&#xd;
+        &quot;certificate&quot;: [&#xd;
+            {&#xd;
+                &quot;ownerReference&quot;: &quot;${__V(cell_0_row_${current_row})}&quot;,&#xd;
+                &quot;certificateNumber&quot;: &quot;${__V(cell_2_row_${current_row})}&quot;,&#xd;
+                &quot;certificateScheme&quot;: &quot;${__V(cell_3_row_${current_row})}&quot;,&#xd;
+                &quot;issuingBody&quot;: &quot;${__V(cell_4_row_${current_row})}&quot;,&#xd;
+                &quot;issueDate&quot;: &quot;${__V(cell_5_row_${current_row})}&quot;,&#xd;
+                &quot;expiryDate&quot;: &quot;${__V(cell_6_row_${current_row})}&quot;,&#xd;
+                &quot;mark&quot;: &quot;${__V(cell_7_row_${current_row})}&quot;,&#xd;
+                &quot;region&quot;: &quot;${__V(region_row_${current_row})}&quot;,&#xd;
+                &quot;attributes&quot;: [&#xd;
+                    {&#xd;
+                        &quot;attributeName&quot;: &quot;certificateWebLink&quot;,&#xd;
+                        &quot;attributeValue&quot;: &quot;${__V(cell_1_row_${current_row})}&quot;&#xd;
+                    },&#xd;
+                    {&#xd;
+                        &quot;attributeName&quot;: &quot;productDescription&quot;,&#xd;
+                        &quot;attributeValue&quot;: &quot;${__V(cell_8_row_${current_row})}&quot;&#xd;
+                    }&#xd;
+                ],&#xd;
+                &quot;customData&quot;: [&#xd;
+                    {&#xd;
+                        &quot;objectName&quot;: &quot;regulations&quot;,&#xd;
+                        &quot;objectValue&quot;: ${__V(regulations_row_${current_row})}&#xd;
+                    },&#xd;
+                    {&#xd;
+                        &quot;objectName&quot;: &quot;testReportDetails&quot;,&#xd;
+                        &quot;objectValue&quot;: ${__V(testReportDetails_row_${current_row})}&#xd;
+                    },&#xd;
+                    {&#xd;
+                        &quot;objectName&quot;: &quot;hasAssets&quot;,&#xd;
+                        &quot;objectValue&quot;: ${__V(hasAssets_row_${current_row})}&#xd;
+                    }&#xd;
+                ],&#xd;
+                &quot;user&quot;: &quot;${user}&quot;&#xd;
+            }&#xd;
+        ]&#xd;
+    }&#xd;
+}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">${Environment_Path}${environment}/external/certificates</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="TestPlan.comments">Create Master Data</stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">Authorization</stringProp>
+                      <stringProp name="Header.value">Bearer ${__property(Access_Token)}</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+                <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">false</stringProp>
+                  <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+import org.json.JSONObject;
+import org.json.JSONArray;
+
+int current_row = vars.getObject(&apos;current_row&apos;).toInteger();
+//log.info(&quot;current_row: &quot; + current_row);
+int next_row = vars.getObject(&apos;next_row&apos;).toInteger();
+//log.info(&quot;next_row: &quot; + next_row);
+
+JSONArray regulations_array = new JSONArray();
+JSONArray testReportDetails_array = new JSONArray();
+JSONArray hasAssets_array = new JSONArray();
+List regionList = new ArrayList();
+
+for(int r =current_row; r&lt;next_row; ++r){
+	cell_variable_9 = &quot;cell_9_row_&quot;+r;
+	cell_value_9 = vars.get(cell_variable_9);
+	regionList.addAll(cell_value_9);
+
+	cell_variable_10 = &quot;cell_10_row_&quot;+r;
+	cell_value_10 = vars.get(cell_variable_10).replaceAll(&apos;\&quot;&apos;, &apos;\\\&quot;&apos;).replace(&quot;\\\\&quot;, &quot;&quot;);
+	
+	if(cell_value_10!=&quot;&quot;){
+		JSONObject standardCode_object = new JSONObject();
+		standardCode_object.put(&quot;fieldName&quot;, &quot;standardCode&quot;);
+		standardCode_object.put(&quot;fieldValue&quot;, cell_value_10);
+	
+		JSONArray regulations_eD_array = new JSONArray();
+		regulations_eD_array.put(standardCode_object);
+		JSONObject regulations_eD_object = new JSONObject();
+		regulations_eD_object.put(&quot;entryDetails&quot;, regulations_eD_array);
+		regulations_array.put(regulations_eD_object);
+	}
+
+	regulations_array_variable = &quot;regulations_row_&quot;+r;
+	vars.putObject(&quot;${regulations_array_variable}&quot;, regulations_array);
+//	log.info(&quot;regulations_array:&quot; + regulations_array);
+
+	cell_variable_11 = &quot;cell_11_row_&quot;+r;
+	cell_value_11 = vars.get(cell_variable_11).replaceAll(&apos;\&quot;&apos;, &apos;\\\&quot;&apos;).replace(&quot;\\\\&quot;, &quot;&quot;);;
+	cell_variable_12 = &quot;cell_12_row_&quot;+r;
+	cell_value_12 = vars.get(cell_variable_12);
+	cell_variable_13 = &quot;cell_13_row_&quot;+r;
+	cell_value_13 = vars.get(cell_variable_13).replaceAll(&apos;\&quot;&apos;, &apos;\\\&quot;&apos;).replace(&quot;\\\\&quot;, &quot;&quot;);;
+	
+	if(cell_value_11==&quot;&quot; &amp;&amp; cell_value_12==&quot;&quot; &amp;&amp; cell_value_12==&quot;&quot;){
+		testReportDetails_array_variable = &quot;testReportDetails_row_&quot;+r;
+		vars.putObject(&quot;${testReportDetails_array_variable}&quot;, testReportDetails_array);
+	}else{
+		JSONObject testReportNumber_object = new JSONObject();
+		testReportNumber_object.put(&quot;fieldName&quot;, &quot;testReportNumber&quot;);
+		testReportNumber_object.put(&quot;fieldValue&quot;, cell_value_11);
+		
+		JSONObject reportIssueDate_object = new JSONObject();
+		reportIssueDate_object.put(&quot;fieldName&quot;, &quot;reportIssueDate&quot;);
+		reportIssueDate_object.put(&quot;fieldValue&quot;, cell_value_12);
+	
+		JSONObject testLab_object = new JSONObject();
+		testLab_object.put(&quot;fieldName&quot;, &quot;testLab&quot;);
+		testLab_object.put(&quot;fieldValue&quot;, cell_value_13);
+	
+		JSONArray testReport_eD_array = new JSONArray();
+		testReport_eD_array.put(testReportNumber_object);
+		testReport_eD_array.put(reportIssueDate_object);
+		testReport_eD_array.put(testLab_object);
+		JSONObject testReport_eD_object = new JSONObject();
+		testReport_eD_object.put(&quot;entryDetails&quot;, testReport_eD_array);
+		testReportDetails_array.put(testReport_eD_object);
+		testReportDetails_array_variable = &quot;testReportDetails_row_&quot;+r;
+		vars.putObject(&quot;${testReportDetails_array_variable}&quot;, testReportDetails_array);
+//		log.info(&quot;testReportDetails_array:&quot; + testReportDetails_array);
+	}
+	
+//	cell_variable_14 = &quot;cell_14_row_&quot;+r;
+//	cell_value_14 = vars.get(cell_variable_14);
+//	cell_variable_15 = &quot;cell_15_row_&quot;+r;
+//	cell_value_15 = vars.get(cell_variable_15);
+//
+//	if(cell_value_14!=&quot;&quot; &amp;&amp; cell_value_15!=&quot;&quot;){
+//		JSONObject modelName_object = new JSONObject();
+//		modelName_object.put(&quot;fieldName&quot;, &quot;modelName&quot;);
+//		modelName_object.put(&quot;fieldValue&quot;, cell_value_14);
+//	
+//		JSONObject productType_object = new JSONObject();
+//		productType_object.put(&quot;fieldName&quot;, &quot;productType&quot;);
+//		productType_object.put(&quot;fieldValue&quot;, cell_value_15);
+//	
+//		JSONArray hasAssets_eD_array = new JSONArray();
+//		hasAssets_eD_array.put(modelName_object);
+//		hasAssets_eD_array.put(productType_object);
+//		JSONObject hasAssets_eD_object = new JSONObject();
+//		hasAssets_eD_object.put(&quot;entryDetails&quot;, hasAssets_eD_array);
+//		hasAssets_array.put(hasAssets_eD_object);
+//	}
+	hasAssets_array_variable = &quot;hasAssets_row_&quot;+r;
+	vars.putObject(&quot;${hasAssets_array_variable}&quot;, props.get(&quot;hasAssets_array_final&quot;));
+	//log.info(&quot;hasAssets_array: &quot; + hasAssets_array);
+}
+
+regionList.removeAll(Arrays.asList(&quot;&quot;, null))
+def region = regionList.join(&quot;;&quot;);
+region_variable = &quot;region_row_&quot;+current_row;
+vars.putObject(&quot;${region_variable}&quot;, region);</stringProp>
+                </JSR223PreProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Certificate code, status, message" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">certificate_code;certificate_status;certificate_message</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$..code;$..status;$..message</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">certificate_code_not_found;certificate_status_not_found;certificate_message_not_found</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Certificates List" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">certificates_list</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.certificate</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">certificates_list_not_found</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - certificateId" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">certificate_id</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$..certificateId</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">certificate_id_not_found</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - Attributes List" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">attributes_list</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$..attributes</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="Sample.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">certificates_list</stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">attributes_list_not_found</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - customData List" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">customData_list</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$..customData</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">customData_list_not_found</stringProp>
+                  <stringProp name="Sample.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">certificates_list</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor - hasError List" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">hasError_list</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$..hasError</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">hasError_list_not_found</stringProp>
+                  <stringProp name="Sample.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">certificates_list</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor - Write Log" enabled="true">
+                  <stringProp name="cacheKey">false</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+
+int counter_int = vars.get(&apos;counter&apos;).toInteger();
+//log.info(&quot;counter_int: &quot; + counter_int);
+int current_row = vars.getObject(&apos;current_row&apos;).toInteger();
+//log.info(&quot;current_row: &quot; + current_row);
+
+Log1 = props.get(&quot;Log1&quot;);
+
+FileInputStream file = new FileInputStream(&quot;${Log1}&quot;);
+XSSFWorkbook writableWorkbook = new XSSFWorkbook (file)
+Sheet writableSheet=writableWorkbook.getSheet(&quot;${Certificates_Log}&quot;)
+
+Row row = writableSheet.createRow(counter_int+1);
+
+XSSFCellStyle style3 = writableWorkbook.createCellStyle();
+style3.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+style3.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style3.setBorderRight(BorderStyle.THIN);
+style3.setBorderLeft(BorderStyle.THIN);
+style3.setBorderBottom(BorderStyle.THIN);
+style3.setLocked(true);
+
+cell_variable_0 = &quot;cell_0_row_&quot;+current_row;
+cell_value_0 = vars.get(cell_variable_0);
+row.createCell(0).setCellValue(cell_value_0);
+row.getCell(0).setCellStyle(style3);
+
+cell_variable_1 = &quot;cell_3_row_&quot;+current_row;
+cell_value_1 = vars.get(cell_variable_1);
+row.createCell(1).setCellValue(cell_value_1);
+row.getCell(1).setCellStyle(style3);
+
+cell_variable_2 = &quot;cell_2_row_&quot;+current_row;
+cell_value_2 = vars.get(cell_variable_2);
+row.createCell(2).setCellValue(cell_value_2);
+row.getCell(2).setCellStyle(style3);
+
+XSSFCellStyle style4 = writableWorkbook.createCellStyle();
+style4.setFillForegroundColor(IndexedColors.LIGHT_GREEN.getIndex());
+style4.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style4.setBorderRight(BorderStyle.THIN);
+style4.setBorderLeft(BorderStyle.THIN);
+style4.setBorderBottom(BorderStyle.THIN);
+style4.setLocked(true);
+
+XSSFCellStyle style6 = writableWorkbook.createCellStyle();
+style6.setFillForegroundColor(IndexedColors.LIGHT_ORANGE.getIndex());
+style6.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style6.setBorderRight(BorderStyle.THIN);
+style6.setBorderLeft(BorderStyle.THIN);
+style6.setBorderBottom(BorderStyle.THIN);
+style6.setLocked(true);
+
+//cell_value_3 = vars.get(&quot;certificate_status&quot;);
+//row.createCell(3).setCellValue(cell_value_3);
+//row.getCell(3).setCellStyle(style4);
+//writableSheet.autoSizeColumn(3);
+
+cell_value_3 = vars.get(&quot;certificate_message&quot;);
+row.createCell(3).setCellValue(cell_value_3);
+
+if(&quot;${certificate_code}&quot; == &quot;200&quot;){
+	row.getCell(3).setCellStyle(style4);
+} else{
+	row.getCell(3).setCellStyle(style6);
+}
+
+writableSheet.autoSizeColumn(3);
+
+try {
+	OutputStream writableExcelFile = new FileOutputStream(&quot;${Log1}&quot;);
+	writableWorkbook.write(writableExcelFile);
+	writableExcelFile.close();
+	writableWorkbook.close();
+	sleep (1000);
+} catch (IOException ex) {
+            ex.printStackTrace();
+}
+
+vars.put(&quot;certificate_code&quot;, null);</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+                <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+                <boolProp name="IfController.useExpression">true</boolProp>
+              </IfController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request - Create Master Data" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">{&#xd;
+    &quot;data&quot;: {&#xd;
+        &quot;PSN&quot;: &quot;${__V(cell_0_row_${current_row})}&quot;,&#xd;
+        &quot;masterData&quot;: [&#xd;
+      {&#xd;
+        &quot;categoryType&quot;: &quot;mark&quot;,&#xd;
+        &quot;categoryValue&quot;: [&#xd;
+          &quot;${__V(cell_7_row_${current_row})}&quot;&#xd;
+        ]&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;categoryType&quot;: &quot;issuingBody&quot;,&#xd;
+        &quot;categoryValue&quot;: [&#xd;
+          &quot;${__V(cell_4_row_${current_row})}&quot;&#xd;
+        ]&#xd;
+      },{&#xd;
+        &quot;categoryType&quot;: &quot;scheme&quot;,&#xd;
+        &quot;categoryValue&quot;: [&#xd;
+          &quot;${__V(cell_3_row_${current_row})}&quot;&#xd;
+        ]&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;user&quot;: &quot;${user}&quot;&#xd;
+  }&#xd;
+}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.protocol"></stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                  <stringProp name="HTTPSampler.path">${Environment_Path}${environment}/external/masterList/masters</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                    <collectionProp name="HeaderManager.headers">
+                      <elementProp name="" elementType="Header">
+                        <stringProp name="Header.name">Authorization</stringProp>
+                        <stringProp name="Header.value">Bearer ${__property(Access_Token)}</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </HeaderManager>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Certificate Products Does Not Exists" enabled="true">
+              <stringProp name="IfController.condition">${__groovy((&quot;${__V(certificate_${current_row}_products)}&quot;==&quot;Product Not Created&quot;))}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">true</boolProp>
+            </IfController>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 - Write Log(certs)" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+
+int counter_int = vars.get(&apos;counter&apos;).toInteger();
+//log.info(&quot;counter_int: &quot; + counter_int);
+int current_row = vars.getObject(&apos;current_row&apos;).toInteger();
+//log.info(&quot;current_row: &quot; + current_row);
+
+Log1 = props.get(&quot;Log1&quot;);
+
+FileInputStream file = new FileInputStream(&quot;${Log1}&quot;);
+XSSFWorkbook writableWorkbook = new XSSFWorkbook (file)
+Sheet writableSheet=writableWorkbook.getSheet(&quot;${Certificates_Log}&quot;)
+
+Row row = writableSheet.createRow(counter_int+1);
+
+XSSFCellStyle style3 = writableWorkbook.createCellStyle();
+style3.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+style3.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style3.setBorderRight(BorderStyle.THIN);
+style3.setBorderLeft(BorderStyle.THIN);
+style3.setBorderBottom(BorderStyle.THIN);
+style3.setLocked(true);
+
+cell_variable_0 = &quot;cell_0_row_&quot;+current_row;
+cell_value_0 = vars.get(cell_variable_0);
+row.createCell(0).setCellValue(cell_value_0);
+row.getCell(0).setCellStyle(style3);
+
+cell_variable_1 = &quot;cell_3_row_&quot;+current_row;
+cell_value_1 = vars.get(cell_variable_1);
+row.createCell(1).setCellValue(cell_value_1);
+row.getCell(1).setCellStyle(style3);
+
+cell_variable_2 = &quot;cell_2_row_&quot;+current_row;
+cell_value_2 = vars.get(cell_variable_2);
+row.createCell(2).setCellValue(cell_value_2);
+row.getCell(2).setCellStyle(style3);
+
+XSSFCellStyle style5 = writableWorkbook.createCellStyle();
+style5.setFillForegroundColor(IndexedColors.RED.getIndex());
+style5.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style5.setBorderRight(BorderStyle.THIN);
+style5.setBorderLeft(BorderStyle.THIN);
+style5.setBorderBottom(BorderStyle.THIN);
+style5.setLocked(true);
+
+cell_value_3 = &quot;${Certificate_Product(s)_NotFound}&quot;;
+row.createCell(3).setCellValue(cell_value_3);
+row.getCell(3).setCellStyle(style5);
+writableSheet.autoSizeColumn(3);
+
+try {
+	OutputStream writableExcelFile = new FileOutputStream(&quot;${Log1}&quot;);
+	writableWorkbook.write(writableExcelFile);
+	writableExcelFile.close();
+	writableWorkbook.close();
+	sleep (1000);
+} catch (IOException ex) {
+            ex.printStackTrace();
+}</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Not Found (Mandatory values)" enabled="true">
+            <stringProp name="IfController.condition">${__groovy((&quot;${Mandatory values}&quot;!=&quot;Found&quot;))}</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">true</boolProp>
+          </IfController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 - Write Log(certs)" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">import java.io.*;
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+
+int counter_int = vars.get(&apos;counter&apos;).toInteger();
+//log.info(&quot;counter_int: &quot; + counter_int);
+int current_row = vars.getObject(&apos;current_row&apos;).toInteger();
+//log.info(&quot;current_row: &quot; + current_row);
+//int next_row = vars.getObject(&apos;next_row&apos;).toInteger();
+
+Log1 = props.get(&quot;Log1&quot;);
+
+FileInputStream file = new FileInputStream(&quot;${Log1}&quot;);
+XSSFWorkbook writableWorkbook = new XSSFWorkbook (file)
+Sheet writableSheet=writableWorkbook.getSheet(&quot;${Certificates_Log}&quot;)
+
+Row row = writableSheet.createRow(counter_int+1);
+
+XSSFCellStyle style3 = writableWorkbook.createCellStyle();
+style3.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+style3.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style3.setBorderRight(BorderStyle.THIN);
+style3.setBorderLeft(BorderStyle.THIN);
+style3.setBorderBottom(BorderStyle.THIN);
+style3.setLocked(true);
+
+cell_variable_0 = &quot;cell_0_row_&quot;+current_row;
+cell_value_0 = vars.get(cell_variable_0);
+row.createCell(0).setCellValue(cell_value_0);
+row.getCell(0).setCellStyle(style3);
+
+cell_variable_1 = &quot;cell_3_row_&quot;+current_row;
+cell_value_1 = vars.get(cell_variable_1);
+row.createCell(1).setCellValue(cell_value_1);
+row.getCell(1).setCellStyle(style3);
+
+cell_variable_2 = &quot;cell_2_row_&quot;+current_row;
+cell_value_2 = vars.get(cell_variable_2);
+row.createCell(2).setCellValue(cell_value_2);
+row.getCell(2).setCellStyle(style3);
+
+XSSFCellStyle style5 = writableWorkbook.createCellStyle();
+style5.setFillForegroundColor(IndexedColors.RED.getIndex());
+style5.setFillPattern(FillPatternType.SOLID_FOREGROUND); 
+style5.setBorderRight(BorderStyle.THIN);
+style5.setBorderLeft(BorderStyle.THIN);
+style5.setBorderBottom(BorderStyle.THIN);
+style5.setLocked(true);
+
+owner_flag = vars.get(&apos;Mandatory values_owner&apos;);
+name_flag = vars.get(&apos;Mandatory values_name&apos;);
+scheme_flag = vars.get(&apos;Mandatory values_scheme&apos;);
+date_flag = vars.get(&apos;Mandatory values_Issue_date&apos;);
+
+Mandatory_Values_Missing = owner_flag + name_flag + scheme_flag + date_flag + &apos; Not-Found&apos;;
+
+cell_value = Mandatory_Values_Missing.replaceAll(&quot;^ &amp;&quot;, &quot;&quot;).trim();
+row.createCell(3).setCellValue(cell_value);
+row.getCell(3).setCellStyle(style5);
+writableSheet.autoSizeColumn(3);
+
+try {
+	OutputStream writableExcelFile = new FileOutputStream(&quot;${Log1}&quot;);
+	writableWorkbook.write(writableExcelFile);
+	writableExcelFile.close();
+	writableWorkbook.close();
+	sleep (1000);
+} catch (IOException ex) {
+            ex.printStackTrace();
+}</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>true</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">View_Result_Tree/viewresulttree_${__timeShift(y-MM-dd-HH-mm-ss-SSSS,,,,)}.xml</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>true</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">View_Results_In_Table/viewresulttable__${__timeShift(y-MM-dd-HH-mm-ss-SSSS,,,,)}.xml</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="false">
+        <boolProp name="displayJMeterProperties">true</boolProp>
+        <boolProp name="displayJMeterVariables">true</boolProp>
+        <boolProp name="displaySamplerProperties">true</boolProp>
+        <boolProp name="displaySystemProperties">true</boolProp>
+      </DebugPostProcessor>
+      <hashTree/>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>false</time>
+            <latency>false</latency>
+            <timestamp>false</timestamp>
+            <success>false</success>
+            <label>true</label>
+            <code>false</code>
+            <message>false</message>
+            <threadName>false</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>false</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <sampleCount>true</sampleCount>
+          </value>
+        </objProp>
+        <stringProp name="filename">Aggregate_Reports\Aggregate_Reports__${__timeShift(y-MM-dd-HH-mm-ss-SSSS,,,,)}.csv</stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
