@@ -321,7 +321,8 @@ import org.apache.poi.xssf.usermodel.*;
 import org.apache.jmeter.services.FileServer;
 
 script_directory = FileServer.getFileServer().getBaseDir()+File.separator;
-String Ingestion_Template = script_directory+&quot;${Ingestion_Template_Name}&quot;+&quot;${File_Extension}&quot;;
+//String Ingestion_Template = script_directory+&quot;${Ingestion_Template_Name}&quot;+&quot;${File_Extension}&quot;;
+String Ingestion_Template = script_directory+&quot;${Ingestion_Template_Name}&quot;;
 vars.put(&quot;Ingestion_Template&quot;, Ingestion_Template);
 props.put(&quot;Ingestion_Template&quot;, Ingestion_Template);
 
