@@ -415,7 +415,7 @@ vars.putObject(&quot;certificatesHeader&quot;,certificatesHeader);
 vars.put(&quot;certificatesHeaderCells&quot;,certificatesHeaderCells);
 vars.putObject(&quot;certificatesColumnCount&quot;,certificatesColumnCount);
 vars.put(&quot;user&quot;, user);
-props.put(&quot;email_to_user&quot;, user);
+props.put(&quot;user_email&quot;, user);
 vars.putObject(&quot;user_length&quot;,user_length);
 
 if (!readableWorkBook.equals(null) &amp;&amp; user_length!=0 &amp;&amp; !productsSheet.equals(null) &amp;&amp; !productsHeader.equals(null) &amp;&amp; !productsHeaderCells.equals(&quot;Not Found&quot;) &amp;&amp; !certificatesSheet.equals(null) &amp;&amp; !certificatesHeader.equals(null) &amp;&amp; !certificatesHeaderCells.equals(&quot;Not Found&quot;) &amp;&amp; productsColumnCount==7 &amp;&amp; certificatesColumnCount==16) {
