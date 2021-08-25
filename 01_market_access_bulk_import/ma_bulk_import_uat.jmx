@@ -12,8 +12,8 @@
             <stringProp name="Argument.value">${__P(Ingestion_Template_Name,)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="User_Email" elementType="Argument">
-            <stringProp name="Argument.name">User_Email</stringProp>
+          <elementProp name="user" elementType="Argument">
+            <stringProp name="Argument.name">user</stringProp>
             <stringProp name="Argument.value"></stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -383,8 +383,8 @@ try {
 	user_length = user.length();
 	props.put(&quot;user&quot;, user);
 	log.info(&quot;user:&quot; + user);
-	props.put(&quot;User_Email&quot;, user);
-	log.info(&quot;User_Email:&quot; + User_Email);
+//	props.put(&quot;User_Email&quot;, user);
+//	log.info(&quot;User_Email:&quot; + User_Email);
 	
 	productsColumnCount=productsSheet.getRow(0).getPhysicalNumberOfCells();
 //	log.info(&quot;productsColumnCount: &quot; + productsColumnCount);
