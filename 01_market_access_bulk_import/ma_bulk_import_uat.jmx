@@ -378,7 +378,7 @@ try {
 	user_length = user.length();
 	props.put(&quot;user&quot;, user);
 	log.info(&quot;user:&quot; + user);
-	props.put(&quot;User_Email&quot;, + user);
+	props.put(&quot;User_Email&quot;, user.toString());
 	log.info(&quot;User_Email:&quot; + User_Email);
 	
 	productsColumnCount=productsSheet.getRow(0).getPhysicalNumberOfCells();
