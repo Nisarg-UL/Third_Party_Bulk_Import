@@ -12,11 +12,6 @@
             <stringProp name="Argument.value">${__P(Ingestion_Template_Name,)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="User_Email" elementType="Argument">
-            <stringProp name="Argument.name">User_Email</stringProp>
-            <stringProp name="Argument.value"></stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="Log1_Name" elementType="Argument">
             <stringProp name="Argument.name">Log1_Name</stringProp>
             <stringProp name="Argument.value">SelfManaged-Output_Log</stringProp>
