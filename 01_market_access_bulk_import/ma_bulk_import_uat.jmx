@@ -509,7 +509,8 @@ if (!readableWorkBook.equals(null) &amp;&amp; user_length==0) {
 
 // Create user info log file
 
-String customers = FileServer.getFileServer().getBaseDir() + File.separator+File.separator+&quot;user_info.csv&quot;;
+script_directory = FileServer.getFileServer().getBaseDir()+File.separator;
+String customers = script_directory+&quot;user_info.csv&quot;;
 
 try {
 
@@ -574,7 +575,7 @@ public void writeLine(FileWriter writer, String[] params, char separator)
 
 String[] params = Arrays.asList(user, user_email);
 
-FileWriter fileWriter = new FileWriter(FileServer.getFileServer().getBaseDir() + File.separator+File.separator+File.separator+File.separator+&quot;user_info.csv&quot;, true);
+FileWriter fileWriter = new FileWriter(script_directory+&quot;user_info.csv&quot;, true);
 writeLine(fileWriter, params, SEPARATOR);
 
 //proper close to file
