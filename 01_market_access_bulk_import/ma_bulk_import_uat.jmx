@@ -291,7 +291,7 @@ try {
 
 // Open File(s)
 //f = new FileOutputStream(FileServer.getFileServer().getBaseDir()+ File.separator+File.separator+&quot;${Log1}&quot;, true); 
-f = new FileOutputStream(script_directory+&quot;user_info.tsv&quot;, true); 
+f = new FileOutputStream(script_directory+&quot;user_info.csv&quot;, true); 
 p = new PrintStream(f); 
 
 // Close File(s)
@@ -470,7 +470,7 @@ if (!readableWorkBook.equals(null) &amp;&amp; user_length!=0 &amp;&amp; !product
 // Write user info to tsv file
 
 //Default separator
-char SEPARATOR = &apos;\t&apos;;
+char SEPARATOR = &apos;,&apos;;
 
 //function write line in csv
 public void writeLine(FileWriter writer, String[] params, char separator)
@@ -509,7 +509,7 @@ public void writeLine(FileWriter writer, String[] params, char separator)
 
 String[] params = Arrays.asList(user, user_email);
 
-FileWriter fileWriter = new FileWriter(script_directory+&quot;user_info.tsv&quot;, true);
+FileWriter fileWriter = new FileWriter(script_directory+&quot;user_info.csv&quot;, true);
 writeLine(fileWriter, params, SEPARATOR);
 
 //proper close to file
