@@ -112,11 +112,6 @@
             <stringProp name="Argument.value">eq</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="user" elementType="Argument">
-            <stringProp name="Argument.name">user_email</stringProp>
-            <stringProp name="Argument.value">${__P(user,)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
         </collectionProp>
       </elementProp>
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
@@ -271,6 +266,38 @@
           </collectionProp>
         </Arguments>
         <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler-user_info file generation" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+script_directory = FileServer.getFileServer().getBaseDir()+File.separator;
+String customers = script_directory+&quot;user_info.csv&quot;;
+
+try {
+
+ File file = new File(customers);
+
+ if (file.delete()) {
+  System.out.println(file.getName() + &quot; is deleted!&quot;);
+ } else {
+  System.out.println(&quot;Delete operation has failed!&quot;);
+ }
+} catch (Exception e) {
+  e.printStackTrace();
+}
+
+// Open File(s)
+//f = new FileOutputStream(FileServer.getFileServer().getBaseDir()+ File.separator+File.separator+&quot;${Log1}&quot;, true); 
+f = new FileOutputStream(script_directory+&quot;user_info.tsv&quot;, true); 
+p = new PrintStream(f); 
+
+// Close File(s)
+p.close();f.close();</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
         <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Create Log File" enabled="true">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
@@ -372,6 +399,7 @@ String user_cell;
 DataFormatter df= new DataFormatter();
 try {
 	user_cell = df.formatCellValue(titleSheet.getRow(3).getCell(1));
+	user_email_cell = df.formatCellValue(titleSheet.getRow(4).getCell(1));
 	String str = user_cell;
 	
     if(str.substring(0,2)==&quot;0&apos;&quot;){
@@ -383,6 +411,9 @@ try {
 	user_length = user.length();
 	props.put(&quot;user&quot;, user);
 	log.info(&quot;user:&quot; + user);
+	user_email = user_email_cell.trim();
+	props.put(&quot;user_email&quot;, user_email);
+	log.info(&quot;user_email:&quot; + user_email);
 	
 	
 	productsColumnCount=productsSheet.getRow(0).getPhysicalNumberOfCells();
@@ -422,6 +453,7 @@ vars.putObject(&quot;certificatesHeader&quot;,certificatesHeader);
 vars.put(&quot;certificatesHeaderCells&quot;,certificatesHeaderCells);
 vars.putObject(&quot;certificatesColumnCount&quot;,certificatesColumnCount);
 vars.put(&quot;user&quot;, user);
+vars.put(&quot;user_email&quot;, user_email);
 vars.putObject(&quot;user_length&quot;,user_length);
 
 if (!readableWorkBook.equals(null) &amp;&amp; user_length!=0 &amp;&amp; !productsSheet.equals(null) &amp;&amp; !productsHeader.equals(null) &amp;&amp; !productsHeaderCells.equals(&quot;Not Found&quot;) &amp;&amp; !certificatesSheet.equals(null) &amp;&amp; !certificatesHeader.equals(null) &amp;&amp; !certificatesHeaderCells.equals(&quot;Not Found&quot;) &amp;&amp; productsColumnCount==7 &amp;&amp; certificatesColumnCount==16) {
@@ -433,107 +465,9 @@ if (!readableWorkBook.equals(null) &amp;&amp; user_length!=0 &amp;&amp; !product
 //	SampleResult.setStopTestNow(true);	
 }
 
-//readableWorkBook.close();</stringProp>
-        </JSR223Sampler>
-        <hashTree/>
-        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - User credentials Log file" enabled="true">
-          <stringProp name="scriptLanguage">groovy</stringProp>
-          <stringProp name="parameters"></stringProp>
-          <stringProp name="filename"></stringProp>
-          <stringProp name="cacheKey">false</stringProp>
-          <stringProp name="script">import java.io.*;
-import java.util.*;
-import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.*;
-import org.apache.jmeter.services.FileServer;
+//readableWorkBook.close();
 
-
-script_directory = FileServer.getFileServer().getBaseDir()+File.separator;
-String Ingestion_Template = script_directory+&quot;${Ingestion_Template_Name}&quot;;
-vars.put(&quot;Ingestion_Template&quot;, Ingestion_Template);
-props.put(&quot;Ingestion_Template&quot;, Ingestion_Template);
-
-XSSFWorkbook readableWorkBook;
-try {
-	FileInputStream excelFile = new FileInputStream(new File(&quot;${Ingestion_Template}&quot;));
-	readableWorkBook = new XSSFWorkbook(excelFile);
-	log.info(&quot;Readable Workbook Found&quot;);
-	excelFile.close();
-} catch (Exception e) {
-     log.info(&quot;Readable Workbook Exception: &quot; + e.getMessage());
-}
-vars.putObject(&quot;readableWorkBook&quot;,readableWorkBook);
-
-XSSFSheet titleSheet;
-try {
-	titleSheet = readableWorkBook.getSheet(&quot;${Title_Sheet}&quot;);
-} catch (Exception e) {
-     log.info(&quot;Title Sheet Exception: &quot; + e.getMessage());
-}
-
-vars.putObject(&quot;titleSheet&quot;,titleSheet);
-
-int user_length=0;
-
-String user;
-String user_cell;
-DataFormatter df= new DataFormatter();
-try {
-	user_cell = df.formatCellValue(titleSheet.getRow(3).getCell(1));
-	user_email_cell = df.formatCellValue(titleSheet.getRow(4).getCell(1));
-	String str = user_cell;
-	
-    if(str.substring(0,2)==&quot;0&apos;&quot;){
-    		user = user_cell.replace(&quot;&apos;&quot;, &quot;&quot;).trim();
-	} 
-	else{
-		user = user_cell.trim();
-	}
-	user_email = user_email_cell.trim();
-	user_length = user.length();
-	props.put(&quot;user&quot;, user);
-	log.info(&quot;user:&quot; + user);
-	props.put(&quot;user_email&quot;, user_email);
-	log.info(&quot;user_email:&quot; + user_email);
-
-vars.put(&quot;user&quot;, user);
-vars.put(&quot;user_email&quot;, user_email);
-vars.putObject(&quot;user_length&quot;,user_length);
-
-if (!readableWorkBook.equals(null) &amp;&amp; user_length==0) {
-	log.info(&quot;Test Stopped as Readable WorkBook/Sheet/Header/HeaderCells/User Not Found&quot;);
-     vars.put(&quot;Ingestion WorkBook/Sheet/Header/HeaderCells/User Status&quot;, &quot;Not Found&quot;);
-}
-
-// Write user info to csv file
-
-// Create user info log file
-
-script_directory = FileServer.getFileServer().getBaseDir()+File.separator;
-String customers = script_directory+&quot;user_info.csv&quot;;
-
-try {
-
- File file = new File(customers);
-
- if (file.delete()) {
-  System.out.println(file.getName() + &quot; is deleted!&quot;);
- } else {
-  System.out.println(&quot;Delete operation has failed!&quot;);
- }
-} catch (Exception e) {
-  e.printStackTrace();
-}
-
-// Open File(s)
-//f = new FileOutputStream(FileServer.getFileServer().getBaseDir()+ File.separator+File.separator+&quot;${Log1}&quot;, true); 
-f = new FileOutputStream(FileServer.getFileServer().getBaseDir() + File.separator+File.separator+&quot;user_info.csv&quot;, true); 
-p = new PrintStream(f); 
-
-// Close File(s)
-p.close();f.close();
-
-// Write user info to csv file
+// Write user info to tsv file
 
 //Default separator
 char SEPARATOR = &apos;\t&apos;;
@@ -575,13 +509,12 @@ public void writeLine(FileWriter writer, String[] params, char separator)
 
 String[] params = Arrays.asList(user, user_email);
 
-FileWriter fileWriter = new FileWriter(script_directory+&quot;user_info.csv&quot;, true);
+FileWriter fileWriter = new FileWriter(script_directory+&quot;user_info.tsv&quot;, true);
 writeLine(fileWriter, params, SEPARATOR);
 
 //proper close to file
 fileWriter.flush();
-fileWriter.close();
-</stringProp>
+fileWriter.close();</stringProp>
         </JSR223Sampler>
         <hashTree/>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Not Found (Ingestion WorkBook/Sheet/Header/HeaderCells/User Status)" enabled="true">
