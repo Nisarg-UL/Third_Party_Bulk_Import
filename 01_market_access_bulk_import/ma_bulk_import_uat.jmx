@@ -112,6 +112,11 @@
             <stringProp name="Argument.value">eq</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="User_Email" elementType="Argument">
+            <stringProp name="Argument.name">User_Email</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </elementProp>
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
@@ -417,7 +422,7 @@ vars.putObject(&quot;certificatesHeader&quot;,certificatesHeader);
 vars.put(&quot;certificatesHeaderCells&quot;,certificatesHeaderCells);
 vars.putObject(&quot;certificatesColumnCount&quot;,certificatesColumnCount);
 vars.put(&quot;user&quot;, user);
-props.put(&quot;User_Email&quot;, vars.get(&quot;user&quot;));
+props.put(&quot;User_Email&quot;, &quot;user_50696&quot;);
 log.info(&quot;User_Email:&quot; + User_Email);
 vars.putObject(&quot;user_length&quot;,user_length);
 
