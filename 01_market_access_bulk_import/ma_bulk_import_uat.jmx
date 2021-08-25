@@ -12,6 +12,11 @@
             <stringProp name="Argument.value">${__P(Ingestion_Template_Name,)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="User_Email" elementType="Argument">
+            <stringProp name="Argument.name">User_Email</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
           <elementProp name="Log1_Name" elementType="Argument">
             <stringProp name="Argument.name">Log1_Name</stringProp>
             <stringProp name="Argument.value">SelfManaged-Output_Log</stringProp>
@@ -377,7 +382,9 @@ try {
 	}
 	user_length = user.length();
 	props.put(&quot;user&quot;, user);
-	${__setProperty(user_email, user)}
+	props.put(&quot;User_Email&quot;, user);
+	log.info(&quot;User_Email:&quot; + User_Email);
+	${__setProperty(User_Email, user)}
 	
 	productsColumnCount=productsSheet.getRow(0).getPhysicalNumberOfCells();
 //	log.info(&quot;productsColumnCount: &quot; + productsColumnCount);
