@@ -2757,7 +2757,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">View_Result_Tree/viewresulttree_${__timeShift(y-MM-dd-HH-mm-ss-SSSS,,,,)}.xml</stringProp>
+        <stringProp name="filename">viewresulttree_${__timeShift(y-MM-dd-HH-mm-ss-SSSS,,,,)}.xml</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
@@ -2797,7 +2797,7 @@ try {
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">View_Results_In_Table/viewresulttable__${__timeShift(y-MM-dd-HH-mm-ss-SSSS,,,,)}.xml</stringProp>
+        <stringProp name="filename">viewresulttable__${__timeShift(y-MM-dd-HH-mm-ss-SSSS,,,,)}.xml</stringProp>
       </ResultCollector>
       <hashTree/>
       <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="false">
@@ -2838,7 +2838,7 @@ try {
             <sampleCount>true</sampleCount>
           </value>
         </objProp>
-        <stringProp name="filename">Aggregate_Reports\Aggregate_Reports__${__timeShift(y-MM-dd-HH-mm-ss-SSSS,,,,)}.csv</stringProp>
+        <stringProp name="filename">Aggregate_Reports__${__timeShift(y-MM-dd-HH-mm-ss-SSSS,,,,)}.csv</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
