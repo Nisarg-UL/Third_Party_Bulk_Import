@@ -14,7 +14,7 @@
           </elementProp>
           <elementProp name="Log1_Name" elementType="Argument">
             <stringProp name="Argument.name">Log1_Name</stringProp>
-            <stringProp name="Argument.value">Logs/SelfManaged-Output_Log</stringProp>
+            <stringProp name="Argument.value">SelfManaged-Output_Log</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="File_Extension" elementType="Argument">
