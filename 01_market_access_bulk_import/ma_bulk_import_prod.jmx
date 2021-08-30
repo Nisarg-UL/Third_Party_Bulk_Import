@@ -266,6 +266,38 @@
           </collectionProp>
         </Arguments>
         <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler-user_info file generation" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+script_directory = FileServer.getFileServer().getBaseDir()+File.separator;
+String customers = script_directory+&quot;user_info.csv&quot;;
+
+try {
+
+ File file = new File(customers);
+
+ if (file.delete()) {
+  System.out.println(file.getName() + &quot; is deleted!&quot;);
+ } else {
+  System.out.println(&quot;Delete operation has failed!&quot;);
+ }
+} catch (Exception e) {
+  e.printStackTrace();
+}
+
+// Open File(s)
+//f = new FileOutputStream(FileServer.getFileServer().getBaseDir()+ File.separator+File.separator+&quot;${Log1}&quot;, true); 
+f = new FileOutputStream(script_directory+&quot;user_info.csv&quot;, true); 
+p = new PrintStream(f); 
+
+// Close File(s)
+p.close();f.close();</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
         <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - Create Log File" enabled="true">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
@@ -367,6 +399,7 @@ String user_cell;
 DataFormatter df= new DataFormatter();
 try {
 	user_cell = df.formatCellValue(titleSheet.getRow(3).getCell(1));
+	user_email_cell = df.formatCellValue(titleSheet.getRow(4).getCell(1));
 	String str = user_cell;
 	
     if(str.substring(0,2)==&quot;0&apos;&quot;){
@@ -377,6 +410,11 @@ try {
 	}
 	user_length = user.length();
 	props.put(&quot;user&quot;, user);
+	log.info(&quot;user:&quot; + user);
+	user_email = user_email_cell.trim();
+	props.put(&quot;user_email&quot;, user_email);
+	log.info(&quot;user_email:&quot; + user_email);
+
 	
 	productsColumnCount=productsSheet.getRow(0).getPhysicalNumberOfCells();
 //	log.info(&quot;productsColumnCount: &quot; + productsColumnCount);
@@ -415,6 +453,7 @@ vars.putObject(&quot;certificatesHeader&quot;,certificatesHeader);
 vars.put(&quot;certificatesHeaderCells&quot;,certificatesHeaderCells);
 vars.putObject(&quot;certificatesColumnCount&quot;,certificatesColumnCount);
 vars.put(&quot;user&quot;, user);
+vars.put(&quot;user_email&quot;, user_email);
 vars.putObject(&quot;user_length&quot;,user_length);
 
 if (!readableWorkBook.equals(null) &amp;&amp; user_length!=0 &amp;&amp; !productsSheet.equals(null) &amp;&amp; !productsHeader.equals(null) &amp;&amp; !productsHeaderCells.equals(&quot;Not Found&quot;) &amp;&amp; !certificatesSheet.equals(null) &amp;&amp; !certificatesHeader.equals(null) &amp;&amp; !certificatesHeaderCells.equals(&quot;Not Found&quot;) &amp;&amp; productsColumnCount==7 &amp;&amp; certificatesColumnCount==16) {
@@ -426,7 +465,56 @@ if (!readableWorkBook.equals(null) &amp;&amp; user_length!=0 &amp;&amp; !product
 //	SampleResult.setStopTestNow(true);	
 }
 
-//readableWorkBook.close();</stringProp>
+//readableWorkBook.close();
+
+// Write user info to tsv file
+
+//Default separator
+char SEPARATOR = &apos;,&apos;;
+
+//function write line in csv
+public void writeLine(FileWriter writer, String[] params, char separator)
+{
+   boolean firstParam = true;
+
+   StringBuilder stringBuilder = new StringBuilder();
+   String param = &quot;&quot;;
+   
+   for (int i = 0; i &lt; params.length; i++)
+   {
+      //get param
+      param = params[i];
+      log.info(param);
+       
+         //if the first param in the line, separator is not needed
+       if (!firstParam) 
+       {
+           stringBuilder.append(separator);
+       }
+
+         //Add param to line
+       stringBuilder.append(param);
+      
+       firstParam = false;
+   }
+
+   //prepare file to next line
+   stringBuilder.append(System.getProperty(&quot;line.separator&quot;));
+
+   //add to file the line
+   //log.info(stringBuilder.toString());
+   writer.append(stringBuilder.toString());
+
+}
+
+String[] params = Arrays.asList(user, user_email);
+
+FileWriter fileWriter = new FileWriter(script_directory+&quot;user_info.csv&quot;, true);
+writeLine(fileWriter, params, SEPARATOR);
+
+//proper close to file
+fileWriter.flush();
+fileWriter.close();</stringProp>
         </JSR223Sampler>
         <hashTree/>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller - Not Found (Ingestion WorkBook/Sheet/Header/HeaderCells/User Status)" enabled="true">
