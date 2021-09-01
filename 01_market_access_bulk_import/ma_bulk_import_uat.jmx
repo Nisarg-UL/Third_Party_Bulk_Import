@@ -1377,7 +1377,10 @@ product_header.getCell(2).setCellStyle(style1);
 
 product_header.createCell(3).setCellValue(&quot;Message&quot;);
 product_header.getCell(3).setCellStyle(style2);
-	
+
+product_header.createCell(4).setCellValue(&quot;.&quot;);
+product_header.getCell(3).setCellStyle(style1);
+
 try {
 //	OutputStream writableExcelFile = new FileOutputStream(new File(script_directory+&quot;${Log1}&quot;));
 	OutputStream writableExcelFile = new FileOutputStream(new File(&quot;${Log1}&quot;));
