@@ -307,6 +307,7 @@ p.close();f.close();</stringProp>
 import java.util.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
+import org.apache.poi.openxml4j.util.*;
 import org.apache.jmeter.services.FileServer;
 
 String current_time_stamp = &quot;${__timeShift(-y-MM-dd-HH-mm-ss-SSSS,,,,)}&quot;;
@@ -321,6 +322,7 @@ props.put(&quot;Log1&quot;, Log1);
 //log.info(&quot;Log1&quot; + Log1);
 
 //creating Blank writable Workbook
+ZipSecureFile.setMinInflateRatio(0);
 XSSFWorkbook writableWorkbook = new XSSFWorkbook();
 XSSFSheet productsLogSheet = writableWorkbook.createSheet(&quot;${Products_Log}&quot;);
 vars.putObject(&quot;productsLogSheet&quot;,productsLogSheet);
@@ -1378,9 +1380,6 @@ product_header.getCell(2).setCellStyle(style1);
 product_header.createCell(3).setCellValue(&quot;Message&quot;);
 product_header.getCell(3).setCellStyle(style2);
 
-product_header.createCell(4).setCellValue(&quot;.&quot;);
-product_header.getCell(4).setCellStyle(style1);
-
 try {
 //	OutputStream writableExcelFile = new FileOutputStream(new File(script_directory+&quot;${Log1}&quot;));
 	OutputStream writableExcelFile = new FileOutputStream(new File(&quot;${Log1}&quot;));
@@ -2406,6 +2405,8 @@ vars.putObject(&quot;${region_variable}&quot;, region);</stringProp>
 import java.util.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
+import org.apache.poi.openxml4j.util.*;
+
 
 int counter_int = vars.get(&apos;counter&apos;).toInteger();
 //log.info(&quot;counter_int: &quot; + counter_int);
@@ -2415,6 +2416,7 @@ int current_row = vars.getObject(&apos;current_row&apos;).toInteger();
 Log1 = props.get(&quot;Log1&quot;);
 
 FileInputStream file = new FileInputStream(&quot;${Log1}&quot;);
+ZipSecureFile.setMinInflateRatio(0);
 XSSFWorkbook writableWorkbook = new XSSFWorkbook (file)
 Sheet writableSheet=writableWorkbook.getSheet(&quot;${Certificates_Log}&quot;)
 
@@ -2573,6 +2575,7 @@ vars.put(&quot;certificate_code&quot;, null);</stringProp>
 import java.util.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
+import org.apache.poi.openxml4j.util.*;
 
 int counter_int = vars.get(&apos;counter&apos;).toInteger();
 //log.info(&quot;counter_int: &quot; + counter_int);
@@ -2582,6 +2585,7 @@ int current_row = vars.getObject(&apos;current_row&apos;).toInteger();
 Log1 = props.get(&quot;Log1&quot;);
 
 FileInputStream file = new FileInputStream(&quot;${Log1}&quot;);
+ZipSecureFile.setMinInflateRatio(0);
 XSSFWorkbook writableWorkbook = new XSSFWorkbook (file)
 Sheet writableSheet=writableWorkbook.getSheet(&quot;${Certificates_Log}&quot;)
 
@@ -2651,6 +2655,7 @@ try {
 import java.util.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
+import org.apache.poi.openxml4j.util.*;
 
 int counter_int = vars.get(&apos;counter&apos;).toInteger();
 //log.info(&quot;counter_int: &quot; + counter_int);
@@ -2661,6 +2666,7 @@ int current_row = vars.getObject(&apos;current_row&apos;).toInteger();
 Log1 = props.get(&quot;Log1&quot;);
 
 FileInputStream file = new FileInputStream(&quot;${Log1}&quot;);
+ZipSecureFile.setMinInflateRatio(0);
 XSSFWorkbook writableWorkbook = new XSSFWorkbook (file)
 Sheet writableSheet=writableWorkbook.getSheet(&quot;${Certificates_Log}&quot;)
 
