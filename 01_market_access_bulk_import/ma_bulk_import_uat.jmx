@@ -1150,12 +1150,14 @@ props.put(&quot;Access_Token&quot;, token);
 import java.util.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
+import org.apache.poi.openxml4j.util.*;
 
 int counter_int = vars.get(&apos;counter&apos;).toInteger();
 
 Log1 = props.get(&quot;Log1&quot;);
 
 FileInputStream file = new FileInputStream(&quot;${Log1}&quot;);
+ZipSecureFile.setMinInflateRatio(0);
 XSSFWorkbook writableWorkbook = new XSSFWorkbook (file);
 Sheet writableSheet=writableWorkbook.getSheet(&quot;${Products_Log}&quot;)
 
@@ -1242,12 +1244,14 @@ vars.put(&quot;product_code&quot;, null);</stringProp>
 import java.util.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
+import org.apache.poi.openxml4j.util.*;
 
 int counter_int = vars.get(&apos;counter&apos;).toInteger();
 
 Log1 = props.get(&quot;Log1&quot;);
 
 FileInputStream file = new FileInputStream(&quot;${Log1}&quot;);
+ZipSecureFile.setMinInflateRatio(0);
 XSSFWorkbook writableWorkbook = new XSSFWorkbook (file)
 Sheet writableSheet=writableWorkbook.getSheet(&quot;${Products_Log}&quot;)
 
